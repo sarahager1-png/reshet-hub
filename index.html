@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>מרכז המערכות · רשת חינוך חב״ד</title>
+<meta name="description" content="מרכז המערכות הדיגיטליות של רשת חינוך חב״ד — כל המערכות במקום אחד." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&family=Rubik:ital,wght@0,700;0,800;0,900;1,800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --purple:#4B2E83; --purple-deep:#341A66; --violet:#7B2ED6; --teal:#00B4CC; --teal-2:#38BDF8;
+    --ink:#1A0B35; --ink-2:#4a4060; --ink-3:#8b82a3; --line:#e9e4f3; --bg:#f6f3fc;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    font-family:'Heebo',system-ui,sans-serif; color:var(--ink); background:var(--bg);
+    -webkit-font-smoothing:antialiased; min-height:100dvh; position:relative; overflow-x:hidden;
+  }
+  /* ambient brand background */
+  body::before{content:'';position:fixed;inset:0;z-index:-2;
+    background:
+      radial-gradient(48rem 24rem at 88% -8%, rgba(123,46,214,.14), transparent 70%),
+      radial-gradient(42rem 22rem at 6% 4%, rgba(0,180,204,.12), transparent 70%),
+      linear-gradient(180deg,#faf8ff,#f1ecfa);}
+  body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:.05;
+    background-image:radial-gradient(currentColor 1px, transparent 1px);background-size:22px 22px;color:#4B2E83;}
+  .display{font-family:'Rubik',sans-serif;}
+  .grad{background:linear-gradient(90deg,var(--violet),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px;}
+
+  header{padding:54px 0 8px;text-align:center;position:relative;}
+  .bh{position:absolute;inset-inline-end:22px;top:26px;font-weight:700;color:var(--ink-3);font-size:14px;}
+  .eyebrow{display:inline-block;font-weight:800;font-size:11px;letter-spacing:.18em;color:var(--purple);
+    background:rgba(75,46,131,.08);border:1px solid rgba(75,46,131,.16);border-radius:999px;padding:6px 14px;}
+  h1{font-family:'Rubik',sans-serif;font-weight:900;font-style:italic;font-size:clamp(2rem,6vw,3.1rem);margin:18px 0 6px;letter-spacing:-.02em;}
+  .sub{color:var(--ink-2);font-size:clamp(.95rem,2.5vw,1.1rem);font-weight:500;}
+
+  .section-label{display:flex;align-items:center;gap:12px;margin:40px 4px 16px;}
+  .section-label .bar{width:6px;height:24px;border-radius:99px;background:linear-gradient(180deg,var(--violet),var(--teal));}
+  .section-label h2{font-family:'Rubik',sans-serif;font-style:italic;font-weight:800;font-size:1.35rem;margin:0;color:var(--ink);}
+  .section-label .count{margin-inline-start:auto;font-size:.85rem;font-weight:700;color:var(--ink-3);}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px;}
+  .card{position:relative;display:flex;flex-direction:column;background:rgba(255,255,255,.82);backdrop-filter:blur(8px);
+    border:1px solid var(--line);border-radius:22px;padding:22px;overflow:hidden;text-decoration:none;color:inherit;
+    box-shadow:0 10px 30px -18px rgba(75,46,131,.35);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s,border-color .3s;}
+  .card::before{content:'';position:absolute;inset-inline:0;top:0;height:4px;background:linear-gradient(90deg,var(--violet),var(--teal));opacity:.85;}
+  .card.live:hover{transform:translateY(-5px);box-shadow:0 26px 50px -22px rgba(75,46,131,.5);border-color:rgba(123,46,214,.28);}
+  .card.dev{opacity:.92;}
+  .card-top{display:flex;align-items:center;gap:14px;}
+  .tile{flex:0 0 auto;width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:26px;
+    background:linear-gradient(140deg,var(--violet),var(--purple));box-shadow:0 10px 20px -10px rgba(75,46,131,.6);}
+  .tile.teal{background:linear-gradient(140deg,var(--teal-2),var(--teal));box-shadow:0 10px 20px -10px rgba(0,180,204,.6);}
+  .name{font-weight:900;font-size:1.18rem;color:var(--ink);line-height:1.2;}
+  .badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;border-radius:999px;padding:3px 9px;margin-top:5px;}
+  .badge.on{background:rgba(16,185,129,.12);color:#0a8f5b;}
+  .badge.off{background:rgba(139,130,163,.14);color:#6c6486;}
+  .dot{width:7px;height:7px;border-radius:99px;background:currentColor;}
+  .desc{margin:14px 0 0;color:var(--ink-2);font-size:.92rem;line-height:1.55;flex:1;}
+  .go{margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:.95rem;color:var(--teal);}
+  .go .arrow{display:grid;place-items:center;width:28px;height:28px;border-radius:99px;background:rgba(0,180,204,.1);
+    box-shadow:inset 0 0 0 1px rgba(0,180,204,.2);transition:transform .3s,background .3s;}
+  .card.live:hover .go .arrow{transform:translateX(-4px);background:rgba(0,180,204,.18);}
+  .go.muted{color:var(--ink-3);}
+  .go.muted .arrow{background:rgba(139,130,163,.12);box-shadow:inset 0 0 0 1px rgba(139,130,163,.2);}
+
+  footer{text-align:center;color:var(--ink-3);font-size:.85rem;padding:48px 0 40px;line-height:1.7;}
+  footer .credit{font-weight:700;color:var(--ink-2);}
+</style>
+</head>
+<body>
+  <span class="bh">ב״ה</span>
+  <div class="wrap">
+    <header>
+      <span class="eyebrow">רשת חינוך חב״ד</span>
+      <h1>מרכז <span class="grad">המערכות</span></h1>
+      <p class="sub">כל המערכות הדיגיטליות במקום אחד</p>
+    </header>
+
+    <div class="section-label">
+      <span class="bar"></span><h2>מערכות פעילות</h2><span class="count" id="liveCount"></span>
+    </div>
+    <div class="grid" id="liveGrid"></div>
+
+    <div class="section-label">
+      <span class="bar"></span><h2>בפיתוח</h2><span class="count" id="devCount"></span>
+    </div>
+    <div class="grid" id="devGrid"></div>
+
+    <footer>
+      <div class="credit">בנוי ופיתוח: שרה הגר · 0503339770</div>
+      <div>רשת חינוך חב״ד · רשת אהלי יוסף יצחק ליובאוויטש</div>
+    </footer>
+  </div>
+
+<script>
+  // ===== עריכה כאן: הוספת/שינוי מערכת =====
+  const LIVE = [
+    { icon:'🎓', teal:false, name:'המדרשת', desc:'הכשרה ופיתוח מקצועי למורות הרשת — קטלוג, הרשמה וגבייה.', url:'https://hamidrasha-sarahager1-pngs-projects.vercel.app' },
+    { icon:'🎉', teal:true,  name:'חגים ונהנים', desc:'CRM לשלוחים, מודלי מפעיל, הצעות מחיר וקבלות.', url:'https://chagim-venehenim.vercel.app' },
+    { icon:'🗂️', teal:false, name:'עתודות לחינוך', desc:'מסד נתוני מועמדים ובוגרים לשליחות החינוך.', url:'https://atudot-lachinuch.co.il' },
+    { icon:'🧭', teal:true,  name:'גיוס והשמה', desc:'גיוס מועמדים, התאמה והשמה לשליחות.', url:'https://giuus.vercel.app' },
+    { icon:'☀️', teal:false, name:'קייטנות חב״ד', desc:'רישום ותשלום לקייטנות הקיץ של הרשת.', url:'https://chabadsummer.co.il' },
+    { icon:'📅', teal:true,  name:'מערכת שעות', desc:'בניית מערכת שעות בית-ספרית חכמה.', url:'https://school-schedule-teal.vercel.app' },
+    { icon:'📝', teal:false, name:'אישורי טיולים', desc:'אישורי הורים דיגיטליים בחתימה לטיולים.', url:'https://trip-consent.vercel.app' },
+    { icon:'🧸', teal:true,  name:'דשבורד גנים', desc:'פיקוח ומעקב גני ילדים למדריכות.', url:'https://gan-madrichot.surge.sh' },
+  ];
+  const DEV = [
+    { icon:'🔥', name:'פיקוח שלהבות', desc:'פיקוח ושליחת טפסים לתלמודי תורה.' },
+    { icon:'🏫', name:'תיק מוסד / תלמודי תורה', desc:'מיפוי ותיק מוסד לרשת התלמודי תורה.' },
+    { icon:'📚', name:'תכלית שנתית', desc:'תכנון שנתי ושיעורים למורות.' },
+    { icon:'💰', name:'תקציב בית חינוך', desc:'ניהול תקציב פר בית ספר.' },
+    { icon:'🏫', name:'דשבורד בתי ספר', desc:'פגישות סיכום ופיקוח לבתי הספר.' },
+  ];
+
+  function liveCard(s){
+    return `<a class="card live" href="${s.url}" target="_blank" rel="noopener">
+      <div class="card-top">
+        <div class="tile ${s.teal?'teal':''}">${s.icon}</div>
+        <div><div class="name">${s.name}</div>
+          <span class="badge on"><span class="dot"></span>פעיל</span></div>
+      </div>
+      <p class="desc">${s.desc}</p>
+      <span class="go">כניסה<span class="arrow">←</span></span>
+    </a>`;
+  }
+  function devCard(s){
+    return `<div class="card dev">
+      <div class="card-top">
+        <div class="tile">${s.icon}</div>
+        <div><div class="name">${s.name}</div>
+          <span class="badge off"><span class="dot"></span>בפיתוח</span></div>
+      </div>
+      <p class="desc">${s.desc}</p>
+      <span class="go muted">בקרוב<span class="arrow">←</span></span>
+    </div>`;
+  }
+  document.getElementById('liveGrid').innerHTML = LIVE.map(liveCard).join('');
+  document.getElementById('devGrid').innerHTML = DEV.map(devCard).join('');
+  document.getElementById('liveCount').textContent = LIVE.length + ' מערכות';
+  document.getElementById('devCount').textContent = DEV.length + ' מערכות';
+</script>
+</body>
+</html>
