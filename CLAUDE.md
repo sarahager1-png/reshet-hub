@@ -3,7 +3,7 @@
 This file provides guidance to Claude Code when working with this repository.
 
 
-> **עדכון 21/9/2026:** `index.html` הוא עכשיו אותו דף בדיוק כמו **https://reshet-maarachot.surge.sh** ("מרכז המערכות" — 28 מערכות חיות, כרטיס + QR להתקנה, סינון וחיפוש, כרטיסים סטטיים ב-HTML ולא מערך JS). מעדכנים את שניהם יחד: מוסיפים כרטיס, מעדכנים את המונה, דוחפים לכאן וגם `surge ./deploy reshet-maarachot.surge.sh`. תיאורי המבנה הישנים למטה (מערך systems, אימוג'י) כבר לא תקפים.
+> **עדכון 21/9/2026:** `index.html` הוא עכשיו אותו דף בדיוק כמו **https://reshet-maarachot.surge.sh** ("מרכז המערכות" — 31 מערכות חיות, כרטיס + QR להתקנה, סינון וחיפוש, כרטיסים סטטיים ב-HTML ולא מערך JS). מעדכנים את שניהם יחד: מוסיפים כרטיס, מעדכנים את המונה, דוחפים לכאן וגם `surge ./deploy reshet-maarachot.surge.sh`. תיאורי המבנה הישנים למטה (מערך systems, אימוג'י) כבר לא תקפים.
 
 ## Commands
 
