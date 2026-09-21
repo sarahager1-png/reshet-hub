@@ -1,146 +1,1132 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>מרכז המערכות · רשת חינוך חב״ד</title>
-<meta name="description" content="מרכז המערכות הדיגיטליות של רשת חינוך חב״ד — כל המערכות במקום אחד." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&family=Rubik:ital,wght@0,700;0,800;0,900;1,800&display=swap" rel="stylesheet" />
-<style>
-  :root{
-    --purple:#4B2E83; --purple-deep:#341A66; --violet:#7B2ED6; --teal:#00B4CC; --teal-2:#38BDF8;
-    --ink:#1A0B35; --ink-2:#4a4060; --ink-3:#8b82a3; --line:#e9e4f3; --bg:#f6f3fc;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0}
-  body{
-    font-family:'Heebo',system-ui,sans-serif; color:var(--ink); background:var(--bg);
-    -webkit-font-smoothing:antialiased; min-height:100dvh; position:relative; overflow-x:hidden;
-  }
-  /* ambient brand background */
-  body::before{content:'';position:fixed;inset:0;z-index:-2;
-    background:
-      radial-gradient(48rem 24rem at 88% -8%, rgba(123,46,214,.14), transparent 70%),
-      radial-gradient(42rem 22rem at 6% 4%, rgba(0,180,204,.12), transparent 70%),
-      linear-gradient(180deg,#faf8ff,#f1ecfa);}
-  body::after{content:'';position:fixed;inset:0;z-index:-1;opacity:.05;
-    background-image:radial-gradient(currentColor 1px, transparent 1px);background-size:22px 22px;color:#4B2E83;}
-  .display{font-family:'Rubik',sans-serif;}
-  .grad{background:linear-gradient(90deg,var(--violet),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 20px;}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>הפרויקטים שלי — מרכז המערכות</title>
 
-  header{padding:54px 0 8px;text-align:center;position:relative;}
-  .bh{position:absolute;inset-inline-end:22px;top:26px;font-weight:700;color:var(--ink-3);font-size:14px;}
-  .eyebrow{display:inline-block;font-weight:800;font-size:11px;letter-spacing:.18em;color:var(--purple);
-    background:rgba(75,46,131,.08);border:1px solid rgba(75,46,131,.16);border-radius:999px;padding:6px 14px;}
-  h1{font-family:'Rubik',sans-serif;font-weight:900;font-style:italic;font-size:clamp(2rem,6vw,3.1rem);margin:18px 0 6px;letter-spacing:-.02em;}
-  .sub{color:var(--ink-2);font-size:clamp(.95rem,2.5vw,1.1rem);font-weight:500;}
+  <style>
+    :root{
+      --bg-0:#0d0a18; --bg-1:#140f26;
+      --surface:rgba(255,255,255,.045); --surface-2:rgba(255,255,255,.075);
+      --border:rgba(170,142,255,.16); --border-strong:rgba(170,142,255,.3);
+      --text:#eceaf6; --text-dim:#a89fc6; --text-faint:#7a7298;
+      --accent:#b39dff; --accent-solid:#7c3aed;
+      --ring:rgba(160,130,255,.55);
+      --pri-bg:linear-gradient(135deg,#8b5cf6,#6d28d9); --pri-fg:#fff;
+      --purple-a:#9d7bff; --purple-b:#6d28d9; --purple-chip-bg:rgba(139,92,246,.16); --purple-chip-fg:#cbb8ff;
+      --teal-a:#2dd4bf; --teal-b:#0d9488; --teal-chip-bg:rgba(45,212,191,.14); --teal-chip-fg:#7ff0e0;
+      --rose-a:#fb7bb0; --rose-b:#db2777; --rose-chip-bg:rgba(251,123,176,.15); --rose-chip-fg:#ffb9d8;
+      --amber-a:#fbbf24; --amber-b:#d97706; --amber-chip-bg:rgba(251,191,36,.15); --amber-chip-fg:#ffd97a;
+      --shadow:0 14px 40px -18px rgba(0,0,0,.7);
+      --qr-ink:#1c1230;
+      color-scheme:dark;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg-0:#f5f2fc; --bg-1:#ece7f8;
+        --surface:rgba(255,255,255,.72); --surface-2:#ffffff;
+        --border:rgba(109,40,217,.14); --border-strong:rgba(109,40,217,.26);
+        --text:#241a3d; --text-dim:#5f5680; --text-faint:#8a82a3;
+        --accent:#6d28d9; --accent-solid:#6d28d9;
+        --ring:rgba(109,40,217,.4);
+        --purple-chip-bg:rgba(139,92,246,.14); --purple-chip-fg:#6b21c9;
+        --teal-chip-bg:rgba(13,148,136,.13); --teal-chip-fg:#0b7a70;
+        --rose-chip-bg:rgba(219,39,119,.12); --rose-chip-fg:#b81f6a;
+        --amber-chip-bg:rgba(217,119,6,.14); --amber-chip-fg:#a5620a;
+        --shadow:0 14px 34px -20px rgba(70,40,120,.4);
+        color-scheme:light;
+      }
+    }
+    :root[data-theme="dark"]{
+      --bg-0:#0d0a18; --bg-1:#140f26;
+      --surface:rgba(255,255,255,.045); --surface-2:rgba(255,255,255,.075);
+      --border:rgba(170,142,255,.16); --border-strong:rgba(170,142,255,.3);
+      --text:#eceaf6; --text-dim:#a89fc6; --text-faint:#7a7298;
+      --accent:#b39dff; --accent-solid:#7c3aed; --ring:rgba(160,130,255,.55);
+      --purple-chip-bg:rgba(139,92,246,.16); --purple-chip-fg:#cbb8ff;
+      --teal-chip-bg:rgba(45,212,191,.14); --teal-chip-fg:#7ff0e0;
+      --rose-chip-bg:rgba(251,123,176,.15); --rose-chip-fg:#ffb9d8;
+      --amber-chip-bg:rgba(251,191,36,.15); --amber-chip-fg:#ffd97a;
+      --shadow:0 14px 40px -18px rgba(0,0,0,.7);
+      color-scheme:dark;
+    }
+    :root[data-theme="light"]{
+      --bg-0:#f5f2fc; --bg-1:#ece7f8;
+      --surface:rgba(255,255,255,.72); --surface-2:#ffffff;
+      --border:rgba(109,40,217,.14); --border-strong:rgba(109,40,217,.26);
+      --text:#241a3d; --text-dim:#5f5680; --text-faint:#8a82a3;
+      --accent:#6d28d9; --accent-solid:#6d28d9; --ring:rgba(109,40,217,.4);
+      --purple-chip-bg:rgba(139,92,246,.14); --purple-chip-fg:#6b21c9;
+      --teal-chip-bg:rgba(13,148,136,.13); --teal-chip-fg:#0b7a70;
+      --rose-chip-bg:rgba(219,39,119,.12); --rose-chip-fg:#b81f6a;
+      --amber-chip-bg:rgba(217,119,6,.14); --amber-chip-fg:#a5620a;
+      --shadow:0 14px 34px -20px rgba(70,40,120,.4);
+      color-scheme:light;
+    }
 
-  .section-label{display:flex;align-items:center;gap:12px;margin:40px 4px 16px;}
-  .section-label .bar{width:6px;height:24px;border-radius:99px;background:linear-gradient(180deg,var(--violet),var(--teal));}
-  .section-label h2{font-family:'Rubik',sans-serif;font-style:italic;font-weight:800;font-size:1.35rem;margin:0;color:var(--ink);}
-  .section-label .count{margin-inline-start:auto;font-size:.85rem;font-weight:700;color:var(--ink-3);}
+    *{box-sizing:border-box}
+    .wrap{
+      direction:rtl; text-align:right;
+      font-family:"Segoe UI","Assistant","Rubik",system-ui,-apple-system,"Arial Hebrew",Arial,sans-serif;
+      color:var(--text);
+      min-height:100vh;
+      background:
+        radial-gradient(60vw 50vh at 88% -8%, rgba(139,92,246,.28), transparent 60%),
+        radial-gradient(52vw 44vh at 6% 4%, rgba(45,212,191,.14), transparent 58%),
+        radial-gradient(48vw 42vh at 78% 108%, rgba(251,123,176,.14), transparent 60%),
+        linear-gradient(180deg,var(--bg-0),var(--bg-1));
+      background-attachment:fixed;
+      padding:clamp(20px,4vw,52px) clamp(16px,4vw,40px) 56px;
+      -webkit-font-smoothing:antialiased;
+    }
+    .shell{max-width:1120px;margin:0 auto}
 
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px;}
-  .card{position:relative;display:flex;flex-direction:column;background:rgba(255,255,255,.82);backdrop-filter:blur(8px);
-    border:1px solid var(--line);border-radius:22px;padding:22px;overflow:hidden;text-decoration:none;color:inherit;
-    box-shadow:0 10px 30px -18px rgba(75,46,131,.35);transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s,border-color .3s;}
-  .card::before{content:'';position:absolute;inset-inline:0;top:0;height:4px;background:linear-gradient(90deg,var(--violet),var(--teal));opacity:.85;}
-  .card.live:hover{transform:translateY(-5px);box-shadow:0 26px 50px -22px rgba(75,46,131,.5);border-color:rgba(123,46,214,.28);}
-  .card.dev{opacity:.92;}
-  .card-top{display:flex;align-items:center;gap:14px;}
-  .tile{flex:0 0 auto;width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:26px;
-    background:linear-gradient(140deg,var(--violet),var(--purple));box-shadow:0 10px 20px -10px rgba(75,46,131,.6);}
-  .tile.teal{background:linear-gradient(140deg,var(--teal-2),var(--teal));box-shadow:0 10px 20px -10px rgba(0,180,204,.6);}
-  .name{font-weight:900;font-size:1.18rem;color:var(--ink);line-height:1.2;}
-  .badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;border-radius:999px;padding:3px 9px;margin-top:5px;}
-  .badge.on{background:rgba(16,185,129,.12);color:#0a8f5b;}
-  .badge.off{background:rgba(139,130,163,.14);color:#6c6486;}
-  .dot{width:7px;height:7px;border-radius:99px;background:currentColor;}
-  .desc{margin:14px 0 0;color:var(--ink-2);font-size:.92rem;line-height:1.55;flex:1;}
-  .go{margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:.95rem;color:var(--teal);}
-  .go .arrow{display:grid;place-items:center;width:28px;height:28px;border-radius:99px;background:rgba(0,180,204,.1);
-    box-shadow:inset 0 0 0 1px rgba(0,180,204,.2);transition:transform .3s,background .3s;}
-  .card.live:hover .go .arrow{transform:translateX(-4px);background:rgba(0,180,204,.18);}
-  .go.muted{color:var(--ink-3);}
-  .go.muted .arrow{background:rgba(139,130,163,.12);box-shadow:inset 0 0 0 1px rgba(139,130,163,.2);}
+    .top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:8px}
+    .eyebrow{font-size:.8rem;letter-spacing:.14em;color:var(--text-faint);font-weight:600;margin:0 0 10px}
+    h1{font-size:clamp(2rem,5.4vw,3.15rem);line-height:1.04;margin:0;font-weight:800;letter-spacing:-.01em;text-wrap:balance}
+    .lede{margin:14px 0 0;color:var(--text-dim);font-size:clamp(1rem,2.3vw,1.12rem);max-width:56ch;line-height:1.55}
+    .stat-row{display:flex;gap:22px;flex-wrap:wrap;margin-top:20px;align-items:center}
+    .stat{display:flex;align-items:baseline;gap:7px}
+    .stat b{font-size:1.5rem;font-weight:800;font-variant-numeric:tabular-nums;color:var(--text)}
+    .stat span{font-size:.9rem;color:var(--text-dim)}
+    .dot{width:8px;height:8px;border-radius:50%;background:#2dd4bf;box-shadow:0 0 0 4px rgba(45,212,191,.18);display:inline-block;align-self:center}
 
-  footer{text-align:center;color:var(--ink-3);font-size:.85rem;padding:48px 0 40px;line-height:1.7;}
-  footer .credit{font-weight:700;color:var(--ink-2);}
-</style>
+    .theme-btn{
+      flex:none;display:inline-flex;align-items:center;justify-content:center;gap:7px;
+      background:var(--surface);border:1px solid var(--border);color:var(--text-dim);
+      border-radius:999px;padding:9px 14px;font:inherit;font-size:.86rem;cursor:pointer;
+      backdrop-filter:blur(8px);transition:border-color .2s,color .2s,transform .1s;
+    }
+    .theme-btn:hover{border-color:var(--border-strong);color:var(--text)}
+    .theme-btn:active{transform:scale(.97)}
+    .theme-btn:focus-visible{outline:none;box-shadow:0 0 0 4px var(--ring)}
+
+    .controls{margin:30px 0 22px;display:flex;flex-direction:column;gap:14px}
+    .search{position:relative}
+    .search svg{position:absolute;inset-inline-start:15px;top:50%;transform:translateY(-50%);color:var(--text-faint);pointer-events:none}
+    .search input{
+      width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);
+      border-radius:14px;padding:14px 46px 14px 16px;font:inherit;font-size:1rem;
+      backdrop-filter:blur(8px);transition:border-color .2s,background .2s;
+    }
+    .search input::placeholder{color:var(--text-faint)}
+    .search input:focus{outline:none;border-color:var(--border-strong);box-shadow:0 0 0 4px var(--ring)}
+    .filters{display:flex;gap:9px;flex-wrap:wrap}
+    .fchip{
+      background:var(--surface);border:1px solid var(--border);color:var(--text-dim);
+      border-radius:999px;padding:8px 15px;font:inherit;font-size:.88rem;cursor:pointer;
+      transition:all .18s;
+    }
+    .fchip:hover{border-color:var(--border-strong);color:var(--text)}
+    .fchip.is-active{background:var(--accent-solid);border-color:transparent;color:#fff;font-weight:600}
+    .fchip:focus-visible{outline:none;box-shadow:0 0 0 4px var(--ring)}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:16px}
+    .card{
+      background:var(--surface);border:1px solid var(--border);border-radius:18px;
+      padding:18px 18px 16px;display:flex;flex-direction:column;gap:13px;
+      backdrop-filter:blur(10px);box-shadow:var(--shadow);
+      transition:transform .18s ease,border-color .2s ease;
+    }
+    .card:hover{transform:translateY(-3px);border-color:var(--border-strong)}
+    .card-head{display:flex;gap:13px;align-items:flex-start}
+    .mono{
+      flex:none;width:46px;height:46px;border-radius:13px;display:grid;place-items:center;
+      font-size:1.45rem;font-weight:800;color:#fff;line-height:1;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 6px 14px -6px rgba(0,0,0,.5);
+    }
+    .mono--purple{background:linear-gradient(140deg,var(--purple-a),var(--purple-b))}
+    .mono--teal{background:linear-gradient(140deg,var(--teal-a),var(--teal-b))}
+    .mono--rose{background:linear-gradient(140deg,var(--rose-a),var(--rose-b))}
+    .mono--amber{background:linear-gradient(140deg,var(--amber-a),var(--amber-b));color:#3a2606}
+    .card-titles{display:flex;flex-direction:column;gap:7px;min-width:0}
+    .card-name{font-size:1.12rem;font-weight:700;margin:0;line-height:1.2;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .badge-wip{font-size:.64rem;font-weight:700;letter-spacing:.04em;padding:2px 7px;border-radius:999px;background:var(--amber-chip-bg);color:var(--amber-chip-fg)}
+    .chip{align-self:flex-start;font-size:.74rem;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+    .chip--purple{background:var(--purple-chip-bg);color:var(--purple-chip-fg)}
+    .chip--teal{background:var(--teal-chip-bg);color:var(--teal-chip-fg)}
+    .chip--rose{background:var(--rose-chip-bg);color:var(--rose-chip-fg)}
+    .chip--amber{background:var(--amber-chip-bg);color:var(--amber-chip-fg)}
+    .card-desc{margin:0;color:var(--text-dim);font-size:.94rem;line-height:1.55;flex:1}
+    .card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:12px;border-top:1px solid var(--border)}
+    .host{font-size:.78rem;color:var(--text-faint);direction:ltr;font-family:ui-monospace,"Cascadia Code",Consolas,monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:42%}
+    .actions{display:flex;gap:8px;flex:none}
+    .btn{display:inline-flex;align-items:center;gap:6px;border-radius:11px;padding:9px 13px;font:inherit;font-size:.85rem;font-weight:600;cursor:pointer;text-decoration:none;border:1px solid transparent;transition:all .16s;white-space:nowrap}
+    .btn:focus-visible{outline:none;box-shadow:0 0 0 4px var(--ring)}
+    .btn-primary{background:var(--pri-bg);color:var(--pri-fg);box-shadow:0 8px 16px -8px rgba(109,40,217,.7)}
+    .btn-primary:hover{filter:brightness(1.07)}
+    .btn-ghost{background:transparent;border-color:var(--border-strong);color:var(--text-dim)}
+    .btn-ghost:hover{color:var(--text);background:var(--surface-2)}
+    .install-toggle[aria-expanded="true"]{color:var(--accent);border-color:var(--accent)}
+
+    .qr-panel{display:flex;gap:14px;align-items:center;margin-top:2px;padding:14px;border-radius:14px;background:var(--surface-2);border:1px solid var(--border)}
+    .qr-panel[hidden]{display:none}
+    .qr-box{flex:none;width:104px;height:104px;background:#fff;border-radius:11px;padding:9px;box-shadow:0 4px 12px -4px rgba(0,0,0,.35)}
+    .qr-box svg{width:100%;height:100%;display:block}
+    .qr-box svg path,.qr-box svg rect{fill:var(--qr-ink)}
+    .qr-text{font-size:.82rem;line-height:1.5;color:var(--text-dim)}
+    .qr-text strong{display:block;color:var(--text);font-size:.9rem;margin-bottom:3px}
+    .qr-text b{color:var(--accent)}
+
+    .empty{text-align:center;color:var(--text-dim);padding:50px 0;font-size:1.02rem;display:none}
+
+    footer{margin-top:40px;text-align:center;color:var(--text-faint);font-size:.85rem;line-height:1.7}
+    footer a{color:var(--accent);text-decoration:none}
+    footer a:hover{text-decoration:underline}
+
+    @media (max-width:560px){
+      .card-foot{flex-direction:column;align-items:stretch}
+      .host{max-width:100%}
+      .actions{justify-content:stretch}
+      .actions .btn{flex:1;justify-content:center}
+      .qr-panel{flex-direction:column;text-align:center}
+    }
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important;scroll-behavior:auto!important}
+      .card:hover{transform:none}
+    }
+  </style>
 </head>
 <body>
-  <span class="bh">ב״ה</span>
+
   <div class="wrap">
-    <header>
-      <span class="eyebrow">רשת חינוך חב״ד</span>
-      <h1>מרכז <span class="grad">המערכות</span></h1>
-      <p class="sub">כל המערכות הדיגיטליות במקום אחד</p>
-    </header>
+    <div class="shell">
+      <div class="top">
+        <div>
+          <p class="eyebrow">רשת חינוך חב״ד · מרכז המערכות</p>
+          <h1>הפרויקטים שלי</h1>
+        </div>
+        <button type="button" class="theme-btn" id="themeBtn" aria-label="החלפת מצב תצוגה">
+          <span id="themeIcon">🌙</span><span id="themeLabel">מצב כהה</span>
+        </button>
+      </div>
+      <p class="lede">כל המערכות החיות במקום אחד. כל אחת נפתחת בלחיצה, ואפשר להתקין אותה על הטלפון בסריקה מהירה.</p>
+      <div class="stat-row">
+        <div class="stat"><b>28</b><span>מערכות</span></div>
+        <div class="stat"><span class="dot"></span><span>כולן פעילות עכשיו</span></div>
+        <div class="stat"><span>עודכן תמוז תשפ״ו</span></div>
+      </div>
 
-    <div class="section-label">
-      <span class="bar"></span><h2>מערכות פעילות</h2><span class="count" id="liveCount"></span>
+      <div class="controls">
+        <div class="search">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="search" id="search" placeholder="חיפוש מערכת…" aria-label="חיפוש מערכת">
+        </div>
+        <div class="filters" id="filters">
+        <button type="button" class="fchip is-active" data-filter="all">הכול</button>
+        <button type="button" class="fchip fchip--purple" data-filter="manage">ניהול ופיקוח</button>
+        <button type="button" class="fchip fchip--teal" data-filter="comm">קהילה ואירועים</button>
+        <button type="button" class="fchip fchip--rose" data-filter="people">מורים, הורים ורישום</button>
+        <button type="button" class="fchip fchip--amber" data-filter="tools">כלים פדגוגיים</button>
+        </div>
+      </div>
+
+      <div class="grid" id="grid">
+      <article class="card" data-cat="manage" data-search="עתודות לחינוך כל המסלול של מועמד לעתודה — רישום, ראיונות, שיבוץ ומעקב מחזורים. ניהול ופיקוח">
+        <div class="card-head">
+          <span class="mono mono--purple" aria-hidden="true">ע</span>
+          <div class="card-titles">
+            <h2 class="card-name">עתודות לחינוך</h2>
+            <span class="chip chip--purple">ניהול ופיקוח</span>
+          </div>
+        </div>
+        <p class="card-desc">כל המסלול של מועמד לעתודה — רישום, ראיונות, שיבוץ ומעקב מחזורים.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">atudot-lachinuch.co.il</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-atudot">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://atudot-lachinuch.co.il" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-atudot" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m1 0h2m3 0h3m2 0h3m1 0h7M0 1.5h1m5 0h1m1 0h1m4 0h1m2 0h1m5 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m3 0h3m3 0h1m1 0h3m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h1m5 0h2m1 0h1m2 0h1m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m2 0h1m1 0h1m2 0h1m1 0h1m2 0h1m2 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m3 0h1m1 0h2m1 0h2m2 0h1m2 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h1m1 0h2m3 0h3m1 0h1M0 8.5h1m1 0h2m1 0h3m1 0h2m2 0h1m1 0h1m1 0h1m4 0h1m2 0h1m1 0h2M2 9.5h2m4 0h1m1 0h6m1 0h8m3 0h1M2 10.5h1m2 0h2m3 0h1m2 0h1m2 0h1m1 0h1m2 0h3m2 0h2M0 11.5h1m1 0h4m1 0h1m2 0h1m1 0h1m3 0h1m2 0h1m1 0h1m1 0h1m4 0h1M0 12.5h2m3 0h4m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m5 0h2M0 13.5h6m2 0h1m1 0h1m3 0h1m1 0h2m1 0h1m1 0h2m3 0h3M3 14.5h1m1 0h3m1 0h1m3 0h1m1 0h3m1 0h1m1 0h3m2 0h3M2 15.5h4m1 0h3m2 0h1m1 0h1m1 0h1m4 0h1m1 0h2m2 0h1M1 16.5h2m2 0h2m3 0h1m3 0h3m1 0h3m3 0h2m1 0h1M3 17.5h3m1 0h2m1 0h3m1 0h1m1 0h2m2 0h1m2 0h1m1 0h3M0 18.5h1m1 0h3m1 0h1m1 0h10m2 0h1m1 0h1m1 0h1m1 0h1M4 19.5h1m3 0h1m1 0h1m2 0h2m2 0h5m4 0h1M1 20.5h1m2 0h1m1 0h6m1 0h2m1 0h2m1 0h8M8 21.5h1m1 0h2m3 0h4m1 0h1m3 0h5M0 22.5h7m1 0h2m2 0h1m1 0h2m2 0h3m1 0h1m1 0h2m1 0h1M0 23.5h1m5 0h1m1 0h1m1 0h1m2 0h3m4 0h1m3 0h2M0 24.5h1m1 0h3m1 0h1m2 0h1m2 0h1m4 0h1m2 0h5m1 0h1m1 0h1M0 25.5h1m1 0h3m1 0h1m1 0h1m2 0h1m7 0h3m2 0h2m1 0h1M0 26.5h1m1 0h3m1 0h1m1 0h1m2 0h4m1 0h1m2 0h1m3 0h1m2 0h1m1 0h1M0 27.5h1m5 0h1m2 0h4m2 0h2m3 0h1m1 0h4m1 0h1M0 28.5h7m1 0h5m2 0h1m2 0h3m2 0h1m3 0h1"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="comm" data-search="חגים ונהנים מרכז לשלוחים — הצעות מחיר, מלאי, סדנאות חג וחומרי הפעלה. קהילה ואירועים">
+        <div class="card-head">
+          <span class="mono mono--teal" aria-hidden="true">ח</span>
+          <div class="card-titles">
+            <h2 class="card-name">חגים ונהנים</h2>
+            <span class="chip chip--teal">קהילה ואירועים</span>
+          </div>
+        </div>
+        <p class="card-desc">מרכז לשלוחים — הצעות מחיר, מלאי, סדנאות חג וחומרי הפעלה.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">chagim-venehenim.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-chagim">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://chagim-venehenim.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-chagim" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m5 0h1m2 0h6m1 0h7M0 1.5h1m5 0h1m2 0h2m1 0h1m5 0h1m3 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h4m2 0h1m1 0h1m2 0h2m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h2m7 0h1m1 0h1m2 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h2m2 0h4m1 0h4m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h2m1 0h5m4 0h1m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h1m1 0h4m1 0h1m4 0h1M0 8.5h1m1 0h5m3 0h1m1 0h1m1 0h5m3 0h5M0 9.5h3m2 0h1m1 0h1m1 0h1m1 0h1m4 0h9m3 0h1M4 10.5h4m1 0h1m5 0h1m1 0h1m3 0h3M3 11.5h1m1 0h1m1 0h1m1 0h1m1 0h1m2 0h2m2 0h1m4 0h3m1 0h1M1 12.5h1m3 0h2m1 0h2m2 0h1m2 0h3m1 0h1m5 0h2M4 13.5h1m2 0h2m2 0h1m1 0h2m1 0h1m2 0h6m3 0h1M1 14.5h1m1 0h1m1 0h2m1 0h1m1 0h1m1 0h6m2 0h1m1 0h5M1 15.5h2m1 0h1m2 0h2m3 0h2m1 0h1m2 0h1m1 0h1m3 0h1m2 0h1M3 16.5h4m1 0h1m3 0h1m1 0h2m1 0h1m3 0h1m3 0h2M0 17.5h1m1 0h1m1 0h1m2 0h2m1 0h3m3 0h1m1 0h7m1 0h1m1 0h1M0 18.5h1m1 0h1m3 0h1m1 0h1m2 0h2m2 0h1m6 0h1m1 0h1m1 0h1M0 19.5h1m1 0h2m4 0h2m1 0h1m2 0h1m1 0h1m2 0h2m6 0h1M0 20.5h1m2 0h1m2 0h1m1 0h1m2 0h1m5 0h1m1 0h6m1 0h3M8 21.5h2m1 0h4m5 0h1m3 0h5M0 22.5h7m3 0h1m2 0h3m1 0h4m1 0h1m1 0h3M0 23.5h1m5 0h1m1 0h1m2 0h1m1 0h1m1 0h2m1 0h3m3 0h1m3 0h1M0 24.5h1m1 0h3m1 0h1m1 0h1m3 0h1m1 0h1m2 0h1m2 0h5m1 0h2M0 25.5h1m1 0h3m1 0h1m1 0h1m3 0h2m2 0h1m1 0h2m5 0h4M0 26.5h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h5m2 0h6M0 27.5h1m5 0h1m2 0h2m2 0h1m1 0h2m3 0h1m2 0h1m1 0h1m1 0h1M0 28.5h7m1 0h5m1 0h2m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="manage" data-search="מצוות ניהול בית-ספרי מלא — מודולים לצוות ולתלמידים, טופס 101 וממ״ם. ניהול ופיקוח">
+        <div class="card-head">
+          <span class="mono mono--purple" aria-hidden="true">מ</span>
+          <div class="card-titles">
+            <h2 class="card-name">מצוות</h2>
+            <span class="chip chip--purple">ניהול ופיקוח</span>
+          </div>
+        </div>
+        <p class="card-desc">ניהול בית-ספרי מלא — מודולים לצוות ולתלמידים, טופס 101 וממ״ם.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">betzavta.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-matzvot">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://betzavta.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-matzvot" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m2 0h2m1 0h1m2 0h6m1 0h7M0 1.5h1m5 0h1m2 0h1m2 0h1m7 0h1m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h1m1 0h1m3 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h1m1 0h2m4 0h3m3 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h1m2 0h1m1 0h3m1 0h4m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h10m2 0h1m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h2m3 0h1m1 0h1m2 0h2M0 8.5h1m1 0h5m3 0h1m3 0h2m1 0h1m4 0h5M0 9.5h5m3 0h2m2 0h1m2 0h2m1 0h7m3 0h1M0 10.5h2m2 0h1m1 0h2m2 0h1m7 0h1m2 0h1M0 11.5h1m1 0h2m1 0h1m2 0h1m2 0h2m1 0h1m1 0h1m2 0h1m5 0h1m1 0h1M2 12.5h1m1 0h1m1 0h3m3 0h1m3 0h2m2 0h1m2 0h1m1 0h2M0 13.5h4m5 0h1m3 0h3m3 0h2m1 0h3m3 0h1M0 14.5h2m1 0h1m1 0h2m1 0h1m1 0h1m1 0h5m1 0h1m1 0h1m3 0h3M0 15.5h5m2 0h3m3 0h1m1 0h1m2 0h1m1 0h5m2 0h1M2 16.5h1m2 0h2m1 0h1m2 0h1m2 0h2m1 0h1m5 0h1m1 0h2M0 17.5h1m1 0h1m2 0h1m1 0h5m3 0h2m2 0h2m1 0h3m1 0h1m1 0h1M0 18.5h1m1 0h1m2 0h4m3 0h1m5 0h1m4 0h2m1 0h1M0 19.5h1m1 0h2m1 0h1m5 0h2m1 0h1m1 0h1m1 0h4m1 0h2m2 0h1M0 20.5h1m1 0h3m1 0h7m3 0h1m1 0h1m1 0h5m1 0h3M8 21.5h1m1 0h1m1 0h4m1 0h4m3 0h5M0 22.5h7m3 0h1m1 0h6m1 0h2m1 0h1m1 0h3M0 23.5h1m5 0h1m1 0h1m2 0h3m1 0h1m1 0h4m3 0h1m3 0h1M0 24.5h1m1 0h3m1 0h1m1 0h1m1 0h1m3 0h2m4 0h5m1 0h3M0 25.5h1m1 0h3m1 0h1m1 0h3m2 0h1m1 0h2m1 0h1m1 0h1m4 0h2M0 26.5h1m1 0h3m1 0h1m1 0h3m1 0h2m4 0h10M0 27.5h1m5 0h1m2 0h1m3 0h2m1 0h1m3 0h2m3 0h1m1 0h1M0 28.5h7m1 0h2m1 0h1m4 0h1m1 0h1m5 0h1m1 0h1"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="manage" data-search="פיקוח שלהבות פיקוח על בתי הספר — ביקורים, מבדקי ידע וסיכומים חכמים. ניהול ופיקוח">
+        <div class="card-head">
+          <span class="mono mono--purple" aria-hidden="true">פ</span>
+          <div class="card-titles">
+            <h2 class="card-name">פיקוח שלהבות</h2>
+            <span class="chip chip--purple">ניהול ופיקוח</span>
+          </div>
+        </div>
+        <p class="card-desc">פיקוח על בתי הספר — ביקורים, מבדקי ידע וסיכומים חכמים.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">pikuach-shalhavot.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-pikuach">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://pikuach-shalhavot.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-pikuach" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m1 0h1m1 0h4m1 0h1m3 0h2m1 0h7M0 1.5h1m5 0h1m1 0h1m1 0h1m2 0h1m4 0h1m3 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m2 0h1m1 0h1m4 0h1m2 0h1m2 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h1m1 0h2m2 0h4m4 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m2 0h2m3 0h3m2 0h1m2 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m2 0h1m1 0h1m1 0h1m2 0h4m2 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h2m7 0h2m1 0h1M0 8.5h1m1 0h2m1 0h3m2 0h1m1 0h2m3 0h2m3 0h1m2 0h1m1 0h2M1 9.5h1m5 0h1m3 0h4m1 0h1m2 0h6m3 0h1M0 10.5h1m2 0h1m1 0h2m6 0h1m2 0h3m1 0h1m5 0h2M1 11.5h1m1 0h2m3 0h1m3 0h1m3 0h1m2 0h5m4 0h1M0 12.5h1m2 0h4m2 0h2m1 0h1m1 0h2m1 0h3m3 0h1m1 0h2M0 13.5h2m1 0h1m3 0h2m2 0h2m1 0h3m2 0h1m2 0h1m3 0h3M0 14.5h2m1 0h1m1 0h2m1 0h6m2 0h5m1 0h3m1 0h3M0 15.5h2m2 0h2m2 0h1m5 0h1m1 0h1m1 0h1m3 0h1m4 0h1M1 16.5h1m2 0h1m1 0h1m1 0h3m3 0h2m2 0h1m1 0h2m1 0h3m1 0h1M2 17.5h2m5 0h4m1 0h3m1 0h1m1 0h1m2 0h1m1 0h3M0 18.5h1m1 0h2m1 0h3m1 0h1m2 0h4m1 0h1m3 0h4m1 0h1M4 19.5h2m1 0h2m1 0h5m1 0h2m2 0h1m2 0h2m1 0h1M1 20.5h1m1 0h5m1 0h3m1 0h6m1 0h7M8 21.5h1m1 0h3m3 0h1m1 0h1m1 0h1m3 0h5M0 22.5h7m1 0h2m1 0h2m1 0h1m1 0h5m1 0h1m1 0h2m1 0h1M0 23.5h1m5 0h1m1 0h2m3 0h2m3 0h1m1 0h1m3 0h2m2 0h1M0 24.5h1m1 0h3m1 0h1m2 0h3m3 0h1m1 0h1m2 0h5m1 0h1M0 25.5h1m1 0h3m1 0h1m1 0h3m4 0h5m3 0h3m2 0h1M0 26.5h1m1 0h3m1 0h1m1 0h2m2 0h1m1 0h1m2 0h1m1 0h1m3 0h1m2 0h1m1 0h1M0 27.5h1m5 0h1m2 0h2m1 0h2m4 0h3m1 0h1m1 0h2m1 0h1M0 28.5h7m1 0h1m1 0h4m4 0h4m1 0h1m1 0h1m1 0h1"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="people" data-search="גיוס והשמה בנק משרות בחינוך — פרסום משרה, מועמדות והשמה. מורים, הורים ורישום">
+        <div class="card-head">
+          <span class="mono mono--rose" aria-hidden="true">ג</span>
+          <div class="card-titles">
+            <h2 class="card-name">גיוס והשמה</h2>
+            <span class="chip chip--rose">מורים, הורים ורישום</span>
+          </div>
+        </div>
+        <p class="card-desc">בנק משרות בחינוך — פרסום משרה, מועמדות והשמה.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">giuus.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-gius">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://giuus.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-gius" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m2 0h1m1 0h2m3 0h1m1 0h7M0 1.5h1m5 0h1m4 0h3m1 0h1m2 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h1m3 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h4m1 0h4m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h1m1 0h2m4 0h1m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h2m1 0h1m2 0h3m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h1m1 0h2m2 0h3M0 8.5h1m1 0h5m2 0h7m2 0h5M0 9.5h1m1 0h2m1 0h1m4 0h1m2 0h1m2 0h1m2 0h1m3 0h1M0 10.5h1m1 0h5m1 0h5m1 0h2m3 0h3m1 0h2M0 11.5h1m3 0h2m4 0h2m4 0h4m4 0h1M3 12.5h1m1 0h2m4 0h1m1 0h1m1 0h4m1 0h1m1 0h3M0 13.5h3m2 0h1m1 0h1m4 0h2m2 0h2m1 0h1m1 0h1m1 0h1M0 14.5h1m1 0h2m1 0h2m1 0h3m2 0h3m1 0h5m1 0h2M0 15.5h1m1 0h2m5 0h1m2 0h1m3 0h5m3 0h1M0 16.5h1m1 0h2m1 0h3m1 0h1m2 0h3m1 0h5m1 0h1M8 17.5h2m5 0h2m3 0h2M0 18.5h7m4 0h2m3 0h1m1 0h1m1 0h1m1 0h3M0 19.5h1m5 0h1m1 0h4m2 0h3m3 0h2m2 0h1M0 20.5h1m1 0h3m1 0h1m1 0h13m1 0h1M0 21.5h1m1 0h3m1 0h1m1 0h2m2 0h1m1 0h1m1 0h3m1 0h5M0 22.5h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m2 0h1m1 0h1m3 0h2m1 0h1M0 23.5h1m5 0h1m2 0h1m2 0h1m3 0h6m2 0h1M0 24.5h7m1 0h1m4 0h2m2 0h8"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="comm" data-search="קייטנות חב״ד רישום ותשלום לקייטנות הקיץ בכל הסניפים. קהילה ואירועים">
+        <div class="card-head">
+          <span class="mono mono--teal" aria-hidden="true">ק</span>
+          <div class="card-titles">
+            <h2 class="card-name">קייטנות חב״ד</h2>
+            <span class="chip chip--teal">קהילה ואירועים</span>
+          </div>
+        </div>
+        <p class="card-desc">רישום ותשלום לקייטנות הקיץ בכל הסניפים.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">chabadsummer.co.il</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-kaitanot">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://chabadsummer.co.il" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-kaitanot" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m3 0h4m2 0h1m1 0h7M0 1.5h1m5 0h1m2 0h1m1 0h2m1 0h3m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h1m2 0h2m1 0h3m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h4m1 0h2m3 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h1m3 0h1m3 0h1m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h1m2 0h2m1 0h3m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h3m1 0h1m1 0h3M0 8.5h1m1 0h5m2 0h1m1 0h1m1 0h4m1 0h5M0 9.5h1m1 0h1m1 0h1m3 0h1m1 0h3m1 0h1m1 0h1m2 0h1m3 0h1M3 10.5h1m2 0h1m1 0h1m1 0h1m2 0h1m1 0h2m2 0h3m1 0h2M2 11.5h1m1 0h2m3 0h1m8 0h1m5 0h1M0 12.5h2m3 0h4m2 0h3m1 0h4m1 0h1m1 0h3M0 13.5h1m1 0h2m1 0h1m6 0h2m2 0h1m2 0h1m1 0h1m1 0h1M0 14.5h1m3 0h1m1 0h1m3 0h1m1 0h4m2 0h4m1 0h2M0 15.5h1m3 0h2m3 0h1m5 0h6m3 0h1M0 16.5h1m2 0h4m2 0h12m1 0h1M8 17.5h1m1 0h2m3 0h2m3 0h2M0 18.5h7m6 0h1m2 0h1m1 0h1m1 0h1m1 0h3M0 19.5h1m5 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m3 0h2M0 20.5h1m1 0h3m1 0h1m1 0h2m1 0h10m1 0h1M0 21.5h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m3 0h2m1 0h5M0 22.5h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h4m5 0h2m1 0h1M0 23.5h1m5 0h1m3 0h2m2 0h3m1 0h4m2 0h1M0 24.5h7m1 0h2m1 0h3m5 0h6"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="manage" data-search="דשבורד בתי ספר דשבורד לכל בתי הספר ברשת — נתונים ופיתוח מקצועי. ניהול ופיקוח">
+        <div class="card-head">
+          <span class="mono mono--purple" aria-hidden="true">ב</span>
+          <div class="card-titles">
+            <h2 class="card-name">דשבורד בתי ספר</h2>
+            <span class="chip chip--purple">ניהול ופיקוח</span>
+          </div>
+        </div>
+        <p class="card-desc">דשבורד לכל בתי הספר ברשת — נתונים ופיתוח מקצועי.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">batei-sefer.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-batei">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://batei-sefer.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-batei" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m2 0h1m1 0h1m1 0h1m2 0h1m2 0h1m2 0h7M0 1.5h1m5 0h1m1 0h1m1 0h1m1 0h1m1 0h3m2 0h2m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m2 0h1m1 0h1m1 0h2m1 0h1m1 0h1m3 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m2 0h2m2 0h3m2 0h2m2 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h1m3 0h2m2 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m2 0h1m2 0h2m5 0h1m2 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M11 7.5h1m1 0h2m1 0h3m1 0h1M0 8.5h1m1 0h1m1 0h1m1 0h1m2 0h4m1 0h2m1 0h1m6 0h1m2 0h1M0 9.5h2m1 0h1m4 0h1m1 0h1m3 0h2m1 0h1m2 0h3m2 0h1m2 0h1M1 10.5h4m1 0h2m1 0h2m2 0h1m6 0h1m2 0h2m1 0h3M4 11.5h1m2 0h1m4 0h1m2 0h1m1 0h2m1 0h1m6 0h1M0 12.5h1m1 0h1m3 0h1m3 0h1m5 0h2m1 0h2m1 0h1m2 0h1m1 0h2M0 13.5h3m7 0h4m1 0h2m4 0h2m2 0h1m2 0h1M1 14.5h6m1 0h2m1 0h2m1 0h3m3 0h2m2 0h2m1 0h2M3 15.5h3m2 0h3m2 0h2m1 0h2m7 0h1m1 0h1M0 16.5h3m2 0h2m1 0h4m2 0h2m1 0h2m2 0h3m1 0h1m1 0h2M1 17.5h1m2 0h1m2 0h1m4 0h1m1 0h2m4 0h1m1 0h1m2 0h2m1 0h1M0 18.5h1m5 0h2m1 0h1m2 0h2m3 0h1m4 0h3m2 0h2M1 19.5h2m1 0h2m1 0h1m2 0h2m3 0h1m1 0h1m1 0h2m1 0h2m1 0h1m1 0h1M0 20.5h1m3 0h3m1 0h2m6 0h2m2 0h5M8 21.5h3m2 0h1m1 0h3m1 0h2m3 0h1m1 0h3M0 22.5h7m7 0h3m1 0h3m1 0h1m1 0h2m1 0h2M0 23.5h1m5 0h1m2 0h1m2 0h3m1 0h3m1 0h1m3 0h2m1 0h2M0 24.5h1m1 0h3m1 0h1m1 0h2m4 0h4m2 0h5m2 0h1M0 25.5h1m1 0h3m1 0h1m3 0h3m1 0h2m1 0h4m2 0h2m1 0h1M0 26.5h1m1 0h3m1 0h1m1 0h1m2 0h2m3 0h1m1 0h3m2 0h3m2 0h1M0 27.5h1m5 0h1m5 0h1m2 0h1m1 0h1m1 0h2m2 0h2m2 0h1M0 28.5h7m1 0h2m1 0h1m1 0h1m3 0h1m1 0h4m1 0h1m2 0h2"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="manage" data-search="דשבורד גנים כלי עבודה למדריכות — ביקורים ודוחות, עובד גם בלי אינטרנט. ניהול ופיקוח">
+        <div class="card-head">
+          <span class="mono mono--purple" aria-hidden="true">ג</span>
+          <div class="card-titles">
+            <h2 class="card-name">דשבורד גנים</h2>
+            <span class="chip chip--purple">ניהול ופיקוח</span>
+          </div>
+        </div>
+        <p class="card-desc">כלי עבודה למדריכות — ביקורים ודוחות, עובד גם בלי אינטרנט.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">gan-madrichot.surge.sh</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-gan">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://gan-madrichot.surge.sh" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-gan" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m3 0h2m1 0h3m3 0h2m1 0h7M0 1.5h1m5 0h1m2 0h3m1 0h6m3 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h1m3 0h2m1 0h1m3 0h2m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h1m1 0h1m3 0h2m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h5m2 0h2m2 0h1m2 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h1m2 0h1m10 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h4m2 0h1m1 0h1m3 0h1M0 8.5h1m1 0h5m3 0h3m3 0h2m2 0h1m1 0h5M1 9.5h1m2 0h1m2 0h2m3 0h4m3 0h6m3 0h1M0 10.5h4m1 0h3m1 0h1m2 0h7m1 0h1m1 0h3M0 11.5h2m1 0h3m3 0h3m1 0h1m1 0h1m2 0h3m2 0h1m1 0h1m1 0h1M0 12.5h4m1 0h3m6 0h2m1 0h1m1 0h1m5 0h2M3 13.5h1m4 0h3m4 0h2m1 0h5m1 0h1m3 0h1M0 14.5h2m1 0h2m1 0h1m1 0h3m6 0h1m3 0h1m3 0h2M0 15.5h1m1 0h1m2 0h1m3 0h2m1 0h1m1 0h1m1 0h1m6 0h1m3 0h1M0 16.5h1m2 0h1m2 0h2m2 0h1m1 0h1m3 0h2m1 0h1m5 0h2M0 17.5h1m1 0h4m2 0h3m2 0h3m2 0h7m1 0h1m1 0h1M0 18.5h1m3 0h1m1 0h1m1 0h9m3 0h1m2 0h2m1 0h1M0 19.5h1m1 0h3m4 0h3m1 0h1m1 0h1m3 0h1m1 0h1m2 0h1m2 0h1M0 20.5h1m4 0h2m1 0h1m5 0h2m1 0h2m1 0h5m1 0h3M8 21.5h1m3 0h1m2 0h4m1 0h1m3 0h5M0 22.5h7m3 0h2m5 0h1m1 0h2m1 0h1m1 0h3M0 23.5h1m5 0h1m1 0h1m1 0h2m2 0h1m1 0h1m1 0h3m3 0h1m2 0h2M0 24.5h1m1 0h3m1 0h1m1 0h1m3 0h1m4 0h1m2 0h5m1 0h1m1 0h1M0 25.5h1m1 0h3m1 0h1m1 0h3m1 0h4m3 0h1m5 0h2M0 26.5h1m1 0h3m1 0h1m1 0h1m5 0h2m1 0h2m1 0h1m1 0h6M0 27.5h1m5 0h1m3 0h2m1 0h3m4 0h2m1 0h1m1 0h1m1 0h1M0 28.5h7m1 0h2m2 0h1m1 0h1m2 0h1m1 0h1m1 0h4m1 0h1"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="manage" data-search="תיק מוסד מיפוי תלמודי-תורה — מוסדות, כיתות ותלמידים במקום אחד. ניהול ופיקוח">
+        <div class="card-head">
+          <span class="mono mono--purple" aria-hidden="true">ת</span>
+          <div class="card-titles">
+            <h2 class="card-name">תיק מוסד</h2>
+            <span class="chip chip--purple">ניהול ופיקוח</span>
+          </div>
+        </div>
+        <p class="card-desc">מיפוי תלמודי-תורה — מוסדות, כיתות ותלמידים במקום אחד.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">tik-mosad-tt.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-tik">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://tik-mosad-tt.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-tik" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m3 0h1m1 0h1m2 0h2m1 0h3m1 0h7M0 1.5h1m5 0h1m15 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h3m3 0h1m1 0h1m2 0h2m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h1m7 0h2m2 0h1m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h2m1 0h5m3 0h2m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h2m2 0h7m3 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h1m2 0h1m1 0h1m1 0h1m2 0h3M0 8.5h1m1 0h5m7 0h2m1 0h1m1 0h1m2 0h5M1 9.5h2m4 0h3m1 0h2m2 0h2m1 0h2m1 0h4m3 0h1M0 10.5h2m1 0h4m2 0h3m5 0h2m3 0h3M0 11.5h4m1 0h1m1 0h2m1 0h3m1 0h1m1 0h1m3 0h1m2 0h1m1 0h1m1 0h1M1 12.5h1m1 0h7m6 0h2m2 0h1m4 0h2M1 13.5h1m3 0h1m1 0h3m3 0h3m2 0h5m1 0h1m3 0h1M1 14.5h2m1 0h3m1 0h1m2 0h1m1 0h4m5 0h2m1 0h2M0 15.5h1m1 0h1m1 0h1m6 0h1m1 0h1m1 0h1m4 0h1m1 0h1m4 0h1M0 16.5h1m2 0h1m2 0h3m3 0h1m1 0h2m1 0h1m2 0h1m4 0h2M0 17.5h1m1 0h1m2 0h1m2 0h2m1 0h2m2 0h6m1 0h3m1 0h1m1 0h1M0 18.5h1m1 0h1m1 0h4m1 0h1m1 0h2m7 0h2m1 0h2m1 0h1M0 19.5h1m1 0h1m6 0h1m1 0h1m2 0h1m1 0h1m1 0h1m1 0h1m1 0h1m4 0h1M0 20.5h1m4 0h2m1 0h1m1 0h2m5 0h8m1 0h3M8 21.5h2m3 0h3m1 0h2m1 0h1m3 0h5M0 22.5h7m2 0h2m2 0h3m1 0h1m1 0h2m1 0h1m1 0h3M0 23.5h1m5 0h1m1 0h1m1 0h4m1 0h1m2 0h1m1 0h1m3 0h1m3 0h1M0 24.5h1m1 0h3m1 0h1m1 0h2m2 0h1m1 0h4m2 0h5m1 0h1m1 0h1M0 25.5h1m1 0h3m1 0h1m1 0h1m4 0h1m2 0h1m1 0h1m6 0h2M0 26.5h1m1 0h3m1 0h1m1 0h8m2 0h2m1 0h7M0 27.5h1m5 0h1m3 0h4m1 0h1m4 0h2m2 0h2m1 0h1M0 28.5h7m1 0h1m3 0h6m1 0h1m3 0h4"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="people" data-search="המדרשת רישום מורות להשתלמויות ולימי פיתוח מקצועי. מורים, הורים ורישום">
+        <div class="card-head">
+          <span class="mono mono--rose" aria-hidden="true">ה</span>
+          <div class="card-titles">
+            <h2 class="card-name">המדרשת</h2>
+            <span class="chip chip--rose">מורים, הורים ורישום</span>
+          </div>
+        </div>
+        <p class="card-desc">רישום מורות להשתלמויות ולימי פיתוח מקצועי.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">hamidrasha.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-midrasha">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://hamidrasha.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-midrasha" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m8 0h2m1 0h3m1 0h7M0 1.5h1m5 0h1m2 0h1m2 0h1m4 0h2m3 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h1m2 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h1m2 0h1m4 0h2m2 0h1m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h3m2 0h3m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h2m1 0h1m1 0h4m3 0h1m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h2m3 0h1m1 0h1m4 0h1M0 8.5h1m1 0h5m4 0h1m2 0h2m1 0h1m4 0h5M2 9.5h3m2 0h1m1 0h2m1 0h1m2 0h10m3 0h1M0 10.5h2m1 0h1m2 0h2m1 0h1m2 0h1m10 0h2M0 11.5h5m2 0h2m1 0h3m1 0h1m1 0h1m1 0h4m3 0h1m1 0h1M4 12.5h1m1 0h2m1 0h1m6 0h3m1 0h1m4 0h2M0 13.5h2m2 0h1m2 0h1m3 0h1m1 0h3m1 0h4m1 0h3m3 0h1M1 14.5h1m2 0h1m1 0h2m3 0h1m1 0h5m3 0h1m1 0h4M0 15.5h5m2 0h1m5 0h1m1 0h1m2 0h6m3 0h1M0 16.5h4m1 0h2m1 0h4m2 0h2m1 0h1m1 0h1m5 0h2M0 17.5h6m1 0h3m1 0h1m3 0h2m1 0h2m1 0h4m1 0h1m1 0h1M0 18.5h1m1 0h2m1 0h2m1 0h1m1 0h1m1 0h1m5 0h1m1 0h2m1 0h2m1 0h1M0 19.5h1m2 0h1m1 0h1m2 0h1m1 0h1m1 0h1m1 0h1m1 0h1m7 0h1m2 0h1M0 20.5h1m1 0h1m2 0h2m3 0h1m1 0h1m3 0h2m2 0h5m1 0h3M8 21.5h8m4 0h1m3 0h5M0 22.5h7m3 0h1m2 0h4m1 0h3m1 0h1m1 0h3M0 23.5h1m5 0h1m1 0h1m1 0h4m1 0h1m2 0h3m3 0h1M0 24.5h1m1 0h3m1 0h1m1 0h1m1 0h1m3 0h2m1 0h1m2 0h5m1 0h1m1 0h1M0 25.5h1m1 0h3m1 0h1m1 0h6m1 0h2m8 0h2M0 26.5h1m1 0h3m1 0h1m1 0h2m4 0h1m3 0h1m1 0h1m1 0h6M0 27.5h1m5 0h1m4 0h1m1 0h2m1 0h1m1 0h1m1 0h2m2 0h2m1 0h1M0 28.5h7m1 0h1m1 0h2m6 0h2m2 0h1m3 0h1"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="people" data-search="מיטוב — קבלת תלמידים קליטת תלמידים חדשים — טופס רישום ומעקב מסודר. מורים, הורים ורישום">
+        <div class="card-head">
+          <span class="mono mono--rose" aria-hidden="true">מ</span>
+          <div class="card-titles">
+            <h2 class="card-name">מיטוב — קבלת תלמידים</h2>
+            <span class="chip chip--rose">מורים, הורים ורישום</span>
+          </div>
+        </div>
+        <p class="card-desc">קליטת תלמידים חדשים — טופס רישום ומעקב מסודר.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">mitov-kabala-next.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-mitov">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://mitov-kabala-next.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-mitov" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m2 0h3m1 0h1m1 0h1m2 0h3m1 0h7M0 1.5h1m5 0h1m3 0h6m6 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h4m1 0h1m1 0h1m3 0h2m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h4m1 0h1m2 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h1m1 0h2m4 0h2m1 0h2m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h4m3 0h1m2 0h1m1 0h1m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h1m3 0h1m1 0h2m2 0h1m1 0h1M0 8.5h1m1 0h5m5 0h1m2 0h3m1 0h1m2 0h5M0 9.5h2m1 0h1m4 0h1m3 0h3m1 0h1m2 0h1m2 0h3m3 0h1M0 10.5h1m1 0h1m3 0h1m1 0h1m3 0h5m3 0h1m2 0h1M0 11.5h6m2 0h1m1 0h1m2 0h1m1 0h1m2 0h1m2 0h3m1 0h1m1 0h1M0 12.5h1m5 0h2m2 0h2m2 0h2m1 0h2m2 0h1m3 0h2M0 13.5h2m1 0h2m2 0h6m3 0h9m3 0h1M0 14.5h1m2 0h1m2 0h2m4 0h1m2 0h1m1 0h1m4 0h1m1 0h3M0 15.5h2m7 0h1m2 0h1m1 0h1m1 0h1m1 0h1m1 0h1m2 0h2m2 0h1M0 16.5h4m1 0h4m1 0h1m1 0h1m4 0h1m1 0h1m3 0h1m1 0h2M0 17.5h2m2 0h1m2 0h2m1 0h1m1 0h3m4 0h6m1 0h1m1 0h1M0 18.5h1m1 0h6m2 0h1m1 0h4m1 0h1m2 0h5m1 0h1M0 19.5h1m2 0h2m2 0h3m1 0h3m1 0h2m1 0h1m3 0h1m4 0h1M0 20.5h1m1 0h2m1 0h2m2 0h1m2 0h1m1 0h1m2 0h1m2 0h5m1 0h3M8 21.5h2m6 0h1m1 0h1m1 0h1m3 0h5M0 22.5h7m3 0h1m1 0h1m2 0h2m2 0h2m1 0h1m1 0h3M0 23.5h1m5 0h1m1 0h3m1 0h1m1 0h3m2 0h2m3 0h1m2 0h1M0 24.5h1m1 0h3m1 0h1m1 0h3m1 0h1m2 0h1m1 0h1m2 0h5m1 0h1M0 25.5h1m1 0h3m1 0h1m1 0h2m1 0h1m1 0h2m1 0h1m3 0h1m4 0h4M0 26.5h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h4m2 0h7M0 27.5h1m5 0h1m3 0h5m3 0h1m1 0h2m1 0h3m1 0h1M0 28.5h7m1 0h1m2 0h1m3 0h1m1 0h1m1 0h1m3 0h1m2 0h1"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="comm" data-search="ימי עיון מנהלות רישום לימי עיון, שיבוץ לייעוץ ובחירת סדנה. קהילה ואירועים">
+        <div class="card-head">
+          <span class="mono mono--teal" aria-hidden="true">י</span>
+          <div class="card-titles">
+            <h2 class="card-name">ימי עיון מנהלות</h2>
+            <span class="chip chip--teal">קהילה ואירועים</span>
+          </div>
+        </div>
+        <p class="card-desc">רישום לימי עיון, שיבוץ לייעוץ ובחירת סדנה.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">menahalot-event.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-menahalot">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://menahalot-event.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-menahalot" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m1 0h1m2 0h5m3 0h2m1 0h7M0 1.5h1m5 0h1m1 0h4m1 0h1m2 0h3m1 0h1m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m3 0h1m5 0h1m3 0h1m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h3m3 0h2m1 0h3m2 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m2 0h3m2 0h1m1 0h1m2 0h1m2 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m2 0h1m2 0h2m1 0h6m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h3m1 0h1m2 0h3M0 8.5h1m1 0h2m1 0h3m1 0h2m1 0h2m1 0h5m2 0h1m2 0h1m1 0h2M0 9.5h1m2 0h3m1 0h4m1 0h4m3 0h6m3 0h1M1 10.5h3m1 0h5m2 0h2m4 0h1m1 0h1m1 0h1m3 0h2M0 11.5h1m1 0h1m2 0h1m2 0h2m1 0h2m3 0h1m3 0h1m1 0h1m5 0h1M0 12.5h1m1 0h1m1 0h8m2 0h4m2 0h1m4 0h2M0 13.5h1m2 0h2m2 0h3m4 0h4m1 0h1m2 0h1m3 0h3M2 14.5h1m1 0h4m2 0h1m1 0h2m2 0h1m1 0h3m1 0h1m1 0h1m1 0h3M0 15.5h1m1 0h1m7 0h2m2 0h2m4 0h1m2 0h1m3 0h1M0 16.5h1m2 0h1m1 0h2m2 0h3m2 0h1m1 0h1m1 0h1m1 0h2m1 0h3m1 0h1M2 17.5h4m1 0h1m2 0h1m3 0h2m2 0h1m1 0h1m2 0h1m1 0h3M0 18.5h1m1 0h1m3 0h1m1 0h3m1 0h7m1 0h1m1 0h3m1 0h1M3 19.5h2m4 0h2m1 0h3m2 0h1m8 0h1M1 20.5h1m2 0h5m3 0h3m1 0h3m1 0h7M8 21.5h1m1 0h3m3 0h1m1 0h1m1 0h1m3 0h5M0 22.5h7m1 0h3m3 0h1m4 0h2m1 0h1m1 0h2m1 0h1M0 23.5h1m5 0h1m1 0h1m4 0h3m2 0h3m3 0h2M0 24.5h1m1 0h3m1 0h1m2 0h1m1 0h1m5 0h1m2 0h5m1 0h2M0 25.5h1m1 0h3m1 0h1m1 0h1m2 0h1m1 0h1m1 0h1m1 0h1m2 0h2m1 0h3m2 0h1M0 26.5h1m1 0h3m1 0h1m1 0h1m5 0h1m1 0h1m1 0h1m4 0h1m2 0h1m1 0h1M0 27.5h1m5 0h1m2 0h1m1 0h2m1 0h3m2 0h2m1 0h4m1 0h1M0 28.5h7m1 0h1m3 0h1m2 0h1m2 0h5m1 0h1m2 0h1"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="people" data-search="אישורי טיולים שולח אישור טיול להורים ומקבל חתימה דיגיטלית. מורים, הורים ורישום">
+        <div class="card-head">
+          <span class="mono mono--rose" aria-hidden="true">ט</span>
+          <div class="card-titles">
+            <h2 class="card-name">אישורי טיולים</h2>
+            <span class="chip chip--rose">מורים, הורים ורישום</span>
+          </div>
+        </div>
+        <p class="card-desc">שולח אישור טיול להורים ומקבל חתימה דיגיטלית.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">trip-consent.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-trip">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://trip-consent.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-trip" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m3 0h1m1 0h1m2 0h2m1 0h3m1 0h7M0 1.5h1m5 0h1m3 0h2m10 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h2m4 0h1m1 0h1m2 0h2m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h2m1 0h2m3 0h2m2 0h1m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h1m4 0h3m3 0h2m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h2m1 0h8m3 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h1m1 0h2m1 0h1m1 0h1m2 0h3M0 8.5h1m1 0h5m3 0h3m1 0h2m1 0h1m1 0h1m2 0h5M2 9.5h1m4 0h1m1 0h4m2 0h2m1 0h2m1 0h2m1 0h1m3 0h1M4 10.5h1m1 0h2m1 0h1m1 0h1m5 0h2m3 0h1m1 0h1M4 11.5h2m4 0h2m2 0h1m1 0h1m3 0h1m3 0h2m1 0h1M0 12.5h2m3 0h2m1 0h1m3 0h1m3 0h2m2 0h1m2 0h1m1 0h2M0 13.5h1m3 0h2m4 0h1m1 0h4m2 0h7m3 0h1M4 14.5h3m5 0h5m4 0h1m1 0h4M0 15.5h1m1 0h1m2 0h1m1 0h1m3 0h1m1 0h1m1 0h1m3 0h2m1 0h1m4 0h1M0 16.5h1m4 0h4m1 0h3m1 0h2m1 0h1m1 0h1m5 0h2M0 17.5h5m10 0h10m1 0h1m1 0h1M0 18.5h1m3 0h3m1 0h1m1 0h1m9 0h1m1 0h1m3 0h1M0 19.5h1m2 0h1m3 0h1m1 0h1m1 0h1m2 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m2 0h1M0 20.5h1m2 0h4m1 0h1m2 0h1m5 0h2m1 0h5m1 0h3M8 21.5h3m2 0h3m1 0h2m1 0h1m3 0h5M0 22.5h7m2 0h1m1 0h5m1 0h1m1 0h2m1 0h1m1 0h3M0 23.5h1m5 0h1m1 0h1m2 0h3m1 0h1m2 0h3m3 0h1m3 0h1M0 24.5h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m1 0h4m2 0h5m1 0h1m1 0h1M0 25.5h1m1 0h3m1 0h1m1 0h3m1 0h2m2 0h1m1 0h3m2 0h1m1 0h2M0 26.5h1m1 0h3m1 0h1m1 0h2m3 0h1m1 0h1m2 0h1m2 0h7M0 27.5h1m5 0h1m4 0h2m1 0h2m3 0h2m1 0h1m1 0h2m1 0h1M0 28.5h7m1 0h1m1 0h1m4 0h3m1 0h1m1 0h6"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="tools" data-search="מערכת שעות בונה מערכת שעות אוטומטית לבית הספר בלחיצה. כלים פדגוגיים">
+        <div class="card-head">
+          <span class="mono mono--amber" aria-hidden="true">ש</span>
+          <div class="card-titles">
+            <h2 class="card-name">מערכת שעות</h2>
+            <span class="chip chip--amber">כלים פדגוגיים</span>
+          </div>
+        </div>
+        <p class="card-desc">בונה מערכת שעות אוטומטית לבית הספר בלחיצה.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">school-schedule-teal.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-schedule">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://school-schedule-teal.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-schedule" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m2 0h1m2 0h1m3 0h1m1 0h3m1 0h7M0 1.5h1m5 0h1m4 0h1m3 0h1m6 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h1m1 0h2m2 0h1m1 0h1m3 0h1m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h2m2 0h3m2 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h1m1 0h2m2 0h1m2 0h4m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h1m1 0h1m1 0h1m2 0h1m4 0h1m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h2m1 0h2m2 0h2m3 0h1M0 8.5h1m1 0h5m3 0h2m1 0h2m2 0h1m2 0h1m1 0h5M0 9.5h6m1 0h1m3 0h2m1 0h1m1 0h1m2 0h6m3 0h1M1 10.5h2m1 0h1m1 0h1m1 0h1m2 0h1m3 0h2m5 0h2M0 11.5h2m3 0h1m1 0h1m7 0h2m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1M4 12.5h5m6 0h1m1 0h1m7 0h2M0 13.5h5m2 0h1m1 0h1m1 0h3m2 0h1m1 0h7m3 0h1M0 14.5h4m1 0h4m2 0h1m1 0h4m3 0h1m1 0h1m1 0h3M2 15.5h1m1 0h2m1 0h2m2 0h3m6 0h2m5 0h1M0 16.5h4m2 0h1m1 0h1m2 0h2m1 0h2m1 0h1m3 0h1m3 0h2M0 17.5h1m2 0h3m10 0h1m1 0h7m1 0h1m1 0h1M0 18.5h1m1 0h1m1 0h4m4 0h1m2 0h1m2 0h1m3 0h2m2 0h1M0 19.5h1m1 0h1m2 0h1m1 0h5m2 0h1m9 0h1m2 0h1M0 20.5h1m2 0h1m1 0h2m5 0h1m2 0h3m1 0h6m1 0h3M8 21.5h1m1 0h1m1 0h3m1 0h3m1 0h1m3 0h5M0 22.5h7m2 0h1m1 0h1m1 0h4m2 0h2m1 0h1m1 0h3M0 23.5h1m5 0h1m1 0h1m1 0h2m1 0h1m1 0h2m1 0h3m3 0h1m3 0h1M0 24.5h1m1 0h3m1 0h1m1 0h4m2 0h2m1 0h2m1 0h5m1 0h1M0 25.5h1m1 0h3m1 0h1m1 0h2m1 0h2m3 0h5m4 0h4M0 26.5h1m1 0h3m1 0h1m1 0h2m1 0h1m1 0h1m1 0h1m1 0h1m4 0h6M0 27.5h1m5 0h1m2 0h1m1 0h1m4 0h1m1 0h1m1 0h2m1 0h1m1 0h1m1 0h1M0 28.5h7m1 0h1m6 0h3m1 0h1m2 0h1m1 0h3"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="tools" data-search="תכלית שנתית תכנון הוראה לשנה שלמה לפי לוח השנה העברי. כלים פדגוגיים">
+        <div class="card-head">
+          <span class="mono mono--amber" aria-hidden="true">ת</span>
+          <div class="card-titles">
+            <h2 class="card-name">תכלית שנתית</h2>
+            <span class="chip chip--amber">כלים פדגוגיים</span>
+          </div>
+        </div>
+        <p class="card-desc">תכנון הוראה לשנה שלמה לפי לוח השנה העברי.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">takhlit-shanatit.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-takhlit">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://takhlit-shanatit.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-takhlit" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m3 0h3m2 0h6m1 0h7M0 1.5h1m5 0h1m2 0h1m8 0h1m3 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h1m1 0h3m1 0h1m1 0h1m3 0h1m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h1m8 0h1m2 0h1m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h3m3 0h2m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h3m1 0h4m4 0h1m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h1m1 0h4m1 0h1m2 0h1M0 8.5h1m1 0h5m4 0h2m1 0h5m3 0h5M0 9.5h5m2 0h3m1 0h1m4 0h9m3 0h1M3 10.5h5m1 0h1m2 0h1m2 0h1m1 0h1m4 0h1m1 0h1M0 11.5h5m2 0h1m4 0h1m1 0h2m2 0h4m3 0h1m1 0h1M1 12.5h2m3 0h2m1 0h4m2 0h3m1 0h1m5 0h2M0 13.5h1m1 0h1m1 0h2m1 0h1m2 0h2m1 0h2m1 0h1m2 0h6m3 0h1M2 14.5h2m2 0h1m2 0h1m2 0h6m2 0h4m1 0h2M3 15.5h2m3 0h1m1 0h1m1 0h2m1 0h1m2 0h1m8 0h1M2 16.5h1m3 0h2m2 0h1m1 0h1m1 0h2m1 0h1m7 0h2M0 17.5h3m1 0h2m1 0h3m1 0h2m3 0h1m1 0h3m1 0h3m1 0h1m1 0h1M0 18.5h1m3 0h1m1 0h1m2 0h1m5 0h1m7 0h2m1 0h1M0 19.5h1m1 0h1m2 0h1m1 0h1m2 0h3m1 0h1m1 0h1m4 0h1m2 0h1m2 0h1M0 20.5h1m5 0h1m2 0h1m2 0h1m4 0h1m1 0h6m1 0h3M8 21.5h3m1 0h3m5 0h1m3 0h5M0 22.5h7m4 0h5m1 0h4m1 0h1m1 0h3M0 23.5h1m5 0h1m1 0h1m4 0h1m1 0h2m1 0h3m3 0h1m3 0h1M0 24.5h1m1 0h3m1 0h1m1 0h5m1 0h1m2 0h1m2 0h5m1 0h2M0 25.5h1m1 0h3m1 0h1m1 0h2m1 0h1m4 0h1m1 0h4m3 0h4M0 26.5h1m1 0h3m1 0h1m1 0h1m1 0h1m3 0h5m2 0h7M0 27.5h1m5 0h1m2 0h2m4 0h2m2 0h2m1 0h1m1 0h2m1 0h1M0 28.5h7m1 0h3m4 0h1m1 0h1m1 0h1m3 0h4"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="comm" data-search="חותם יוצר מסמך ושולח לחתימה דיגיטלית — פשוט ומהיר. קהילה ואירועים">
+        <div class="card-head">
+          <span class="mono mono--teal" aria-hidden="true">ח</span>
+          <div class="card-titles">
+            <h2 class="card-name">חותם</h2>
+            <span class="chip chip--teal">קהילה ואירועים</span>
+          </div>
+        </div>
+        <p class="card-desc">יוצר מסמך ושולח לחתימה דיגיטלית — פשוט ומהיר.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">chotem.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-chotem">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://chotem.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-chotem" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m1 0h3m2 0h1m4 0h7M0 1.5h1m5 0h1m1 0h5m1 0h1m1 0h1m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h2m1 0h3m1 0h1m2 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m5 0h2m2 0h1m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h2m1 0h1m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m4 0h3m2 0h1m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M9 7.5h5m1 0h2M0 8.5h1m2 0h6m2 0h1m2 0h2m1 0h1m2 0h1m1 0h3M0 9.5h2m1 0h3m2 0h1m1 0h1m1 0h1m1 0h2m3 0h5M2 10.5h5m5 0h1m2 0h1m1 0h1m1 0h1m1 0h1m2 0h1M1 11.5h3m1 0h1m1 0h1m1 0h3m2 0h2m1 0h2m2 0h4M2 12.5h1m2 0h2m1 0h2m1 0h2m3 0h1m1 0h2m4 0h1M0 13.5h2m2 0h2m1 0h1m2 0h1m3 0h2m4 0h1m2 0h1M0 14.5h3m1 0h3m1 0h2m1 0h5m1 0h1m2 0h5M0 15.5h1m1 0h1m1 0h1m3 0h1m2 0h1m2 0h1m2 0h1m1 0h1m1 0h2m1 0h1M0 16.5h1m2 0h2m1 0h1m2 0h1m2 0h3m1 0h5m1 0h2M8 17.5h2m1 0h3m2 0h1m3 0h1m1 0h2M0 18.5h7m1 0h1m2 0h2m3 0h1m1 0h1m1 0h1m3 0h1M0 19.5h1m5 0h1m1 0h1m1 0h1m1 0h5m3 0h1m2 0h2M0 20.5h1m1 0h3m1 0h1m1 0h1m5 0h7M0 21.5h1m1 0h3m1 0h1m1 0h2m1 0h1m2 0h5m4 0h2M0 22.5h1m1 0h3m1 0h1m3 0h3m1 0h1m5 0h5M0 23.5h1m5 0h1m2 0h4m1 0h1m3 0h3m1 0h3M0 24.5h7m1 0h1m2 0h1m4 0h3m2 0h1m2 0h1"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="tools" data-search="מחולל שיעורים מחולל מערכי שיעור פדגוגיים למורה. כלים פדגוגיים">
+        <div class="card-head">
+          <span class="mono mono--amber" aria-hidden="true">מ</span>
+          <div class="card-titles">
+            <h2 class="card-name">מחולל שיעורים<span class="badge-wip">בפיתוח</span></h2>
+            <span class="chip chip--amber">כלים פדגוגיים</span>
+          </div>
+        </div>
+        <p class="card-desc">מחולל מערכי שיעור פדגוגיים למורה.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">maarach.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-maarach">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://maarach.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-maarach" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m2 0h2m1 0h1m3 0h1m1 0h7M0 1.5h1m5 0h1m4 0h1m2 0h2m2 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h1m3 0h1m1 0h1m1 0h1m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h9m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h1m1 0h4m1 0h1m2 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h2m6 0h1M0 8.5h1m1 0h5m2 0h1m2 0h3m3 0h5M0 9.5h1m7 0h3m1 0h1m6 0h1m3 0h1M0 10.5h1m1 0h2m1 0h3m1 0h1m2 0h2m1 0h1m2 0h2m1 0h1m1 0h2M0 11.5h2m1 0h1m6 0h3m1 0h2m1 0h4m3 0h1M2 12.5h2m2 0h1m2 0h1m1 0h4m2 0h2m1 0h1m1 0h3M0 13.5h1m1 0h4m2 0h1m1 0h1m1 0h1m3 0h1m2 0h1m1 0h1m1 0h1M0 14.5h1m1 0h3m1 0h3m1 0h1m1 0h1m1 0h3m1 0h4m1 0h2M0 15.5h1m1 0h1m1 0h1m2 0h1m1 0h2m1 0h1m1 0h1m2 0h4m3 0h1M0 16.5h1m1 0h3m1 0h1m3 0h1m2 0h8m1 0h1M8 17.5h4m1 0h1m1 0h2m3 0h2M0 18.5h7m2 0h1m2 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h3M0 19.5h1m5 0h1m1 0h1m1 0h1m1 0h1m3 0h1m3 0h2M0 20.5h1m1 0h3m1 0h1m1 0h1m4 0h1m1 0h6m1 0h1M0 21.5h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m3 0h2m1 0h5M0 22.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h3m1 0h1m3 0h2m1 0h1M0 23.5h1m5 0h1m2 0h1m2 0h1m2 0h2m1 0h4m2 0h1M0 24.5h7m1 0h2m2 0h3m4 0h6"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-cat="manage" data-search="גבייה מחזור הגבייה מבתי הספר בגפ״ן — חיובים מהמדרשת ומקמפוס השלהבת, דרישות תשלום, קבלות ומעקב צ׳קים. ניהול ופיקוח">
+        <div class="card-head">
+          <span class="mono mono--purple" aria-hidden="true">ג</span>
+          <div class="card-titles">
+            <h2 class="card-name">גבייה</h2>
+            <span class="chip chip--purple">ניהול ופיקוח</span>
+          </div>
+        </div>
+        <p class="card-desc">מחזור הגבייה מבתי הספר בגפ״ן — חיובים מהמדרשת ומקמפוס השלהבת, דרישות תשלום, קבלות ומעקב צ׳קים.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">gviya-bay.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-gviya">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://gviya-bay.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-gviya" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m1 0h1m6 0h4m3 0h7M0 1.5h1m5 0h1m2 0h1m3 0h2m1 0h1m1 0h1m1 0h1m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h3m3 0h4m2 0h1m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m2 0h1m1 0h2m1 0h1m2 0h2m3 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m2 0h1m2 0h4m2 0h1m3 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h1m1 0h3m2 0h1m2 0h1m3 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M9 7.5h1m1 0h1m2 0h3m2 0h1M0 8.5h1m1 0h1m3 0h2m3 0h4m3 0h2m3 0h1m2 0h1m1 0h1M0 9.5h1m1 0h3m3 0h1m1 0h2m1 0h2m2 0h1m1 0h2m1 0h2m3 0h2M0 10.5h4m1 0h3m1 0h1m1 0h1m3 0h1m3 0h1m1 0h2m1 0h3m1 0h1M2 11.5h2m6 0h1m2 0h1m6 0h2m2 0h2M0 12.5h1m5 0h1m2 0h1m2 0h2m1 0h2m2 0h4m5 0h1M0 13.5h1m1 0h1m1 0h1m2 0h2m1 0h3m3 0h1m2 0h2m1 0h2m3 0h2M1 14.5h1m2 0h1m1 0h9m1 0h5m3 0h1m3 0h1M3 15.5h1m4 0h2m1 0h1m2 0h3m1 0h4m2 0h1M1 16.5h1m2 0h1m1 0h2m3 0h4m4 0h1m2 0h2m4 0h1M1 17.5h2m1 0h1m4 0h1m1 0h4m3 0h3m1 0h2m2 0h3M0 18.5h7m4 0h1m3 0h1m1 0h7m1 0h1m2 0h1M2 19.5h1m2 0h1m1 0h2m1 0h1m1 0h2m5 0h2m1 0h2M0 20.5h5m1 0h2m2 0h1m2 0h1m1 0h2m3 0h6m1 0h1M8 21.5h1m7 0h1m1 0h1m1 0h1m3 0h3m1 0h1M0 22.5h7m1 0h1m1 0h2m1 0h2m1 0h3m1 0h1m1 0h1m1 0h1m3 0h1M0 23.5h1m5 0h1m3 0h1m1 0h1m1 0h3m3 0h1m3 0h1M0 24.5h1m1 0h3m1 0h1m2 0h1m2 0h3m2 0h9M0 25.5h1m1 0h3m1 0h1m3 0h5m2 0h1m1 0h1m1 0h1m1 0h5M0 26.5h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h2m3 0h1m1 0h1m2 0h1m2 0h2M0 27.5h1m5 0h1m2 0h2m2 0h1m3 0h1m1 0h2m2 0h3M0 28.5h7m1 0h2m1 0h1m1 0h1m1 0h3m2 0h1m1 0h1m1 0h2m2 0h1"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-cat="manage" data-search="מצפה הרשת מסד הנתונים של הרשת — מוסדות, אנשי צוות, מה חסר, והודעות מרוכזות. ניהול ופיקוח">
+        <div class="card-head">
+          <span class="mono mono--purple" aria-hidden="true">מ</span>
+          <div class="card-titles">
+            <h2 class="card-name">מצפה הרשת</h2>
+            <span class="chip chip--purple">ניהול ופיקוח</span>
+          </div>
+        </div>
+        <p class="card-desc">מסד הנתונים של הרשת — מוסדות, אנשי צוות, מה חסר, והודעות מרוכזות.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">mitzpe-reshet.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-mitzpe">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://mitzpe-reshet.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-mitzpe" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m2 0h1m1 0h3m2 0h1m2 0h1m2 0h7M0 1.5h1m5 0h1m1 0h5m1 0h3m1 0h2m2 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m5 0h3m1 0h1m1 0h2m2 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m2 0h1m1 0h5m2 0h1m3 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h1m3 0h1m1 0h1m3 0h3m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m4 0h3m3 0h3m2 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M9 7.5h2m2 0h2m1 0h5M0 8.5h1m1 0h1m1 0h1m1 0h1m3 0h2m2 0h2m1 0h1m6 0h1m2 0h1M0 9.5h3m4 0h3m4 0h2m1 0h2m1 0h1m1 0h1m2 0h1m2 0h1M3 10.5h1m2 0h1m1 0h1m1 0h2m1 0h1m3 0h2m3 0h1m3 0h3M0 11.5h2m1 0h3m2 0h4m3 0h1m1 0h1m1 0h3m1 0h2m2 0h1M0 12.5h1m1 0h1m1 0h1m1 0h2m3 0h1m4 0h2m2 0h4m1 0h1m1 0h2M0 13.5h2m1 0h3m4 0h2m1 0h1m1 0h3m2 0h3m2 0h1m2 0h1M3 14.5h1m2 0h3m1 0h3m1 0h5m1 0h3m1 0h2m1 0h2M1 15.5h1m1 0h1m1 0h1m1 0h2m4 0h2m1 0h4m5 0h1m1 0h1M1 16.5h6m3 0h2m2 0h4m1 0h2m1 0h2m1 0h1m1 0h2M1 17.5h2m2 0h1m3 0h2m3 0h2m1 0h1m2 0h3m2 0h2m1 0h1M0 18.5h1m1 0h3m1 0h2m1 0h1m3 0h1m2 0h1m4 0h1m1 0h2m2 0h2M1 19.5h2m2 0h1m1 0h1m2 0h3m2 0h1m1 0h2m4 0h3m1 0h1M0 20.5h1m2 0h2m1 0h2m2 0h2m5 0h1m2 0h5M8 21.5h2m1 0h1m1 0h1m2 0h1m3 0h1m3 0h1m1 0h3M0 22.5h7m7 0h1m1 0h1m2 0h2m1 0h1m1 0h2m1 0h2M0 23.5h1m5 0h1m3 0h2m1 0h3m1 0h1m2 0h1m3 0h2m1 0h1M0 24.5h1m1 0h3m1 0h1m1 0h1m1 0h2m2 0h1m2 0h2m1 0h5m3 0h1M0 25.5h1m1 0h3m1 0h1m2 0h1m3 0h2m1 0h1m6 0h2m1 0h3M0 26.5h1m1 0h3m1 0h1m1 0h4m1 0h2m2 0h1m1 0h3m1 0h3m2 0h1M0 27.5h1m5 0h1m2 0h2m3 0h2m1 0h1m1 0h3m5 0h1M0 28.5h7m1 0h2m2 0h3m1 0h2m1 0h2m2 0h1m3 0h2"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-cat="manage" data-search="מערכת השכר שכר מורים וגננות — אחוזי משרה, עלות מעביד, תלושים, טופס 101 והחתמות. ניהול ופיקוח">
+        <div class="card-head">
+          <span class="mono mono--purple" aria-hidden="true">ש</span>
+          <div class="card-titles">
+            <h2 class="card-name">מערכת השכר</h2>
+            <span class="chip chip--purple">ניהול ופיקוח</span>
+          </div>
+        </div>
+        <p class="card-desc">שכר מורים וגננות — אחוזי משרה, עלות מעביד, תלושים, טופס 101 והחתמות.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">salary-schools.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-sachar">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://salary-schools.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-sachar" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m3 0h1m1 0h1m2 0h5m2 0h7M0 1.5h1m5 0h1m5 0h1m4 0h1m2 0h1m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h2m4 0h1m1 0h1m1 0h2m2 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h1m3 0h1m3 0h2m2 0h1m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h4m1 0h3m3 0h2m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h3m1 0h6m4 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h3m1 0h2m1 0h1m2 0h1m1 0h1M0 8.5h1m1 0h5m5 0h1m1 0h2m1 0h1m1 0h1m2 0h5M0 9.5h1m2 0h1m1 0h1m1 0h1m1 0h2m4 0h2m1 0h3m1 0h3m3 0h1M2 10.5h2m2 0h2m2 0h2m8 0h2m1 0h2M0 11.5h1m1 0h1m1 0h2m1 0h2m1 0h1m1 0h1m1 0h1m1 0h1m2 0h4m1 0h2m1 0h1M0 12.5h1m1 0h1m1 0h5m3 0h1m4 0h1m1 0h1m5 0h2M2 13.5h2m1 0h1m1 0h4m2 0h3m3 0h2m1 0h3m3 0h1M0 14.5h2m1 0h4m6 0h3m1 0h2m1 0h3m1 0h3M0 15.5h3m1 0h2m1 0h1m1 0h1m2 0h2m1 0h1m2 0h3m2 0h1m3 0h1M0 16.5h3m1 0h5m2 0h2m1 0h4m1 0h1m1 0h1m3 0h2M0 17.5h2m2 0h1m2 0h1m1 0h2m1 0h1m3 0h1m1 0h7m1 0h1m1 0h1M0 18.5h1m1 0h1m1 0h1m1 0h1m1 0h3m4 0h1m1 0h2m3 0h3m1 0h1M0 19.5h1m2 0h3m1 0h2m3 0h1m1 0h2m8 0h1m2 0h1M0 20.5h1m4 0h4m1 0h2m3 0h3m1 0h6m1 0h3M8 21.5h1m3 0h3m1 0h1m1 0h1m1 0h1m3 0h5M0 22.5h7m6 0h4m2 0h2m1 0h1m1 0h3M0 23.5h1m5 0h1m1 0h2m3 0h1m1 0h1m3 0h2m3 0h1M0 24.5h1m1 0h3m1 0h1m1 0h1m3 0h1m1 0h2m1 0h1m2 0h5m1 0h2M0 25.5h1m1 0h3m1 0h1m1 0h1m1 0h1m5 0h5m4 0h4M0 26.5h1m1 0h3m1 0h1m1 0h1m3 0h4m6 0h6M0 27.5h1m5 0h1m2 0h1m1 0h1m4 0h1m1 0h1m1 0h2m1 0h1m1 0h1m1 0h1M0 28.5h7m1 0h1m1 0h3m4 0h3m2 0h1m1 0h3"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-cat="people" data-search="רשת+ רישום וצמיחה — לידים, משפחות, מסעות והודעות, עד הרישום למוסד. מורים, הורים ורישום">
+        <div class="card-head">
+          <span class="mono mono--rose" aria-hidden="true">ר</span>
+          <div class="card-titles">
+            <h2 class="card-name">רשת+</h2>
+            <span class="chip chip--rose">מורים, הורים ורישום</span>
+          </div>
+        </div>
+        <p class="card-desc">רישום וצמיחה — לידים, משפחות, מסעות והודעות, עד הרישום למוסד.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">rishum-vetzmicha.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-rishum">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://rishum-vetzmicha.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-rishum" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m4 0h1m2 0h1m2 0h3m2 0h7M0 1.5h1m5 0h1m1 0h4m1 0h1m3 0h1m1 0h2m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m2 0h2m1 0h1m2 0h1m2 0h3m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m3 0h2m1 0h1m4 0h2m2 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h3m2 0h1m2 0h1m1 0h2m2 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m3 0h2m2 0h2m1 0h1m1 0h2m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 7.5h3m2 0h1m1 0h3M0 8.5h1m1 0h1m1 0h1m1 0h1m2 0h1m2 0h1m4 0h4m3 0h1m2 0h1M0 9.5h1m6 0h2m1 0h2m1 0h1m2 0h1m3 0h1m1 0h1m2 0h1m2 0h1M1 10.5h3m2 0h1m3 0h2m2 0h1m1 0h2m3 0h2m1 0h1m1 0h3M1 11.5h1m1 0h1m1 0h1m2 0h2m1 0h5m1 0h1m1 0h2m2 0h2m2 0h1M5 12.5h3m1 0h2m1 0h1m1 0h1m2 0h1m1 0h4m2 0h1m1 0h2M1 13.5h1m3 0h1m3 0h2m1 0h1m1 0h1m1 0h3m1 0h3m2 0h1m2 0h1M1 14.5h1m1 0h2m1 0h1m1 0h2m2 0h2m3 0h1m2 0h2m1 0h1m1 0h1m1 0h2M0 15.5h1m1 0h1m1 0h2m2 0h2m5 0h1m1 0h1m5 0h1m1 0h1m1 0h1M1 16.5h3m2 0h1m2 0h4m3 0h2m1 0h1m2 0h2m1 0h1m1 0h2M1 17.5h1m2 0h2m1 0h2m2 0h3m2 0h2m2 0h3m2 0h2m1 0h1M0 18.5h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m3 0h2m1 0h2m2 0h2M1 19.5h2m2 0h1m1 0h1m5 0h2m1 0h5m2 0h3m1 0h1M0 20.5h1m1 0h1m2 0h2m2 0h1m4 0h4m2 0h5M8 21.5h3m1 0h1m1 0h1m2 0h2m1 0h1m3 0h1m1 0h3M0 22.5h7m5 0h2m2 0h5m1 0h1m1 0h2m1 0h2M0 23.5h1m5 0h1m2 0h1m2 0h1m2 0h3m2 0h1m3 0h2m2 0h1M0 24.5h1m1 0h3m1 0h1m1 0h2m2 0h1m2 0h3m2 0h5m3 0h1M0 25.5h1m1 0h3m1 0h1m9 0h2m5 0h2m1 0h3M0 26.5h1m1 0h3m1 0h1m1 0h1m4 0h2m2 0h5m1 0h3m2 0h1M0 27.5h1m5 0h1m2 0h3m3 0h6m2 0h2m2 0h1M0 28.5h7m1 0h1m1 0h2m2 0h1m1 0h2m1 0h2m3 0h2m1 0h2"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-cat="comm" data-search="ועידת החינוך ״תתחדשי״ — ועידת החינוך: לובי, שאלונים, סדנאות והגרלות בזמן אמת. קהילה ואירועים">
+        <div class="card-head">
+          <span class="mono mono--teal" aria-hidden="true">ו</span>
+          <div class="card-titles">
+            <h2 class="card-name">ועידת החינוך</h2>
+            <span class="chip chip--teal">קהילה ואירועים</span>
+          </div>
+        </div>
+        <p class="card-desc">״תתחדשי״ — ועידת החינוך: לובי, שאלונים, סדנאות והגרלות בזמן אמת.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">veidat-hachinuch.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-veida">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://veidat-hachinuch.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-veida" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m2 0h1m1 0h2m1 0h1m3 0h2m2 0h7M0 1.5h1m5 0h1m1 0h2m1 0h1m1 0h1m5 0h2m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m3 0h3m2 0h1m6 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m2 0h1m1 0h1m1 0h1m4 0h3m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h2m1 0h3m2 0h4m2 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m3 0h1m1 0h1m1 0h2m1 0h1m1 0h1m2 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M15 7.5h1m1 0h1m2 0h1M0 8.5h1m1 0h1m1 0h1m1 0h1m2 0h1m7 0h4m3 0h1m2 0h1M3 9.5h1m4 0h2m1 0h3m2 0h1m3 0h3m2 0h1m2 0h1M0 10.5h1m5 0h1m1 0h2m4 0h1m1 0h2m4 0h1m1 0h1m1 0h3M1 11.5h2m1 0h2m2 0h3m1 0h4m1 0h1m1 0h1m7 0h1M1 12.5h1m3 0h2m1 0h1m1 0h1m1 0h1m1 0h1m2 0h1m1 0h4m2 0h1m1 0h2M0 13.5h1m1 0h3m2 0h2m1 0h2m2 0h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h1M1 14.5h1m3 0h3m3 0h1m1 0h1m3 0h1m2 0h6m1 0h2M5 15.5h1m2 0h1m1 0h1m4 0h1m1 0h1m1 0h1m1 0h1m1 0h3m1 0h1M1 16.5h3m2 0h1m3 0h1m1 0h1m3 0h2m1 0h2m1 0h1m2 0h1m1 0h2M5 17.5h1m2 0h1m1 0h4m2 0h2m2 0h3m2 0h2m1 0h1M0 18.5h1m2 0h4m1 0h1m2 0h1m2 0h1m1 0h1m4 0h1m1 0h2m2 0h2M1 19.5h1m2 0h2m1 0h1m1 0h2m1 0h3m1 0h3m6 0h1m1 0h1M0 20.5h1m2 0h2m1 0h3m5 0h4m2 0h5M8 21.5h1m3 0h1m1 0h1m2 0h4m3 0h1m1 0h3M0 22.5h7m2 0h5m2 0h5m1 0h1m1 0h2m1 0h2M0 23.5h1m5 0h1m2 0h2m1 0h1m2 0h3m2 0h1m3 0h2m2 0h1M0 24.5h1m1 0h3m1 0h1m1 0h1m3 0h1m2 0h3m2 0h5m3 0h1M0 25.5h1m1 0h3m1 0h1m3 0h3m3 0h2m5 0h2m1 0h3M0 26.5h1m1 0h3m1 0h1m1 0h2m3 0h2m2 0h2m1 0h1m2 0h3m2 0h1M0 27.5h1m5 0h1m2 0h1m3 0h1m1 0h10m2 0h1M0 28.5h7m1 0h3m1 0h1m3 0h2m1 0h2m1 0h4m1 0h2"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-cat="tools" data-search="סילבוס חינוך לשוני א׳–ב׳ תכנית הלימודים השנתית בחינוך לשוני לכיתות א׳–ב׳, עם חומרים לכל נושא. כלים פדגוגיים">
+        <div class="card-head">
+          <span class="mono mono--amber" aria-hidden="true">ס</span>
+          <div class="card-titles">
+            <h2 class="card-name">סילבוס חינוך לשוני א׳–ב׳</h2>
+            <span class="chip chip--amber">כלים פדגוגיים</span>
+          </div>
+        </div>
+        <p class="card-desc">תכנית הלימודים השנתית בחינוך לשוני לכיתות א׳–ב׳, עם חומרים לכל נושא.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">silabus-safa.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-silabus-ab">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://silabus-safa.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-silabus-ab" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m4 0h2m2 0h2m1 0h3m1 0h7M0 1.5h1m5 0h1m4 0h1m10 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h2m4 0h1m1 0h1m2 0h2m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h1m2 0h2m3 0h2m2 0h1m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h3m3 0h2m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h2m1 0h1m1 0h6m3 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h1m2 0h3m1 0h1m2 0h3M0 8.5h1m1 0h5m2 0h1m1 0h2m1 0h2m1 0h1m1 0h1m2 0h5M1 9.5h1m2 0h2m1 0h1m3 0h2m2 0h2m1 0h2m1 0h4m3 0h1M0 10.5h3m1 0h1m1 0h2m2 0h1m6 0h2m1 0h2m1 0h2M2 11.5h1m4 0h1m2 0h2m2 0h1m1 0h1m4 0h2m1 0h2m1 0h1M0 12.5h1m5 0h7m3 0h2m7 0h2M0 13.5h1m1 0h3m2 0h4m2 0h3m2 0h3m1 0h3m3 0h1M0 14.5h2m1 0h1m2 0h3m4 0h4m7 0h3M1 15.5h5m7 0h1m1 0h1m3 0h2m2 0h1m3 0h1M0 16.5h1m1 0h2m1 0h3m6 0h2m1 0h1m7 0h2M0 17.5h3m5 0h1m2 0h1m3 0h6m1 0h3m1 0h1m1 0h1M0 18.5h1m1 0h10m8 0h2m1 0h2m1 0h1M0 19.5h1m6 0h1m1 0h1m4 0h1m1 0h1m1 0h1m3 0h1m4 0h1M0 20.5h1m1 0h1m2 0h2m1 0h2m1 0h2m4 0h2m1 0h5m1 0h3M8 21.5h1m2 0h1m1 0h3m1 0h2m1 0h1m3 0h5M0 22.5h7m2 0h1m1 0h1m1 0h3m1 0h1m1 0h2m1 0h1m1 0h3M0 23.5h1m5 0h1m1 0h3m1 0h2m1 0h1m2 0h3m3 0h1m3 0h1M0 24.5h1m1 0h3m1 0h1m1 0h1m1 0h2m2 0h4m2 0h5m1 0h1m1 0h1M0 25.5h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h2m2 0h1m1 0h4m3 0h2M0 26.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h1m1 0h1m2 0h1m2 0h7M0 27.5h1m5 0h1m3 0h1m1 0h1m1 0h2m3 0h2m1 0h2m1 0h1m1 0h1M0 28.5h7m1 0h1m4 0h5m1 0h1m4 0h3"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-cat="tools" data-search="סילבוס חינוך לשוני ג׳–ו׳ תכנית הלימודים השנתית בחינוך לשוני לכיתות ג׳–ו׳, עם חומרים לכל נושא. כלים פדגוגיים">
+        <div class="card-head">
+          <span class="mono mono--amber" aria-hidden="true">ס</span>
+          <div class="card-titles">
+            <h2 class="card-name">סילבוס חינוך לשוני ג׳–ו׳</h2>
+            <span class="chip chip--amber">כלים פדגוגיים</span>
+          </div>
+        </div>
+        <p class="card-desc">תכנית הלימודים השנתית בחינוך לשוני לכיתות ג׳–ו׳, עם חומרים לכל נושא.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">silabus-gimel-vav.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-silabus-gv">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://silabus-gimel-vav.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-silabus-gv" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m3 0h1m1 0h2m1 0h1m3 0h2m1 0h7M0 1.5h1m5 0h1m2 0h1m2 0h4m1 0h1m2 0h1m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h1m1 0h1m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h2m1 0h1m2 0h4m1 0h1m2 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h1m2 0h1m4 0h1m1 0h2m2 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h4m3 0h1m2 0h1m3 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h5m1 0h2m4 0h1M0 8.5h1m1 0h5m2 0h1m1 0h2m2 0h3m1 0h1m2 0h5M0 9.5h1m1 0h1m4 0h1m2 0h1m2 0h2m1 0h1m2 0h6m3 0h1M1 10.5h4m1 0h1m1 0h1m1 0h1m2 0h5m2 0h2m1 0h2M3 11.5h2m3 0h3m2 0h1m1 0h1m2 0h1m1 0h3m1 0h2m1 0h1M1 12.5h4m1 0h2m4 0h1m1 0h2m1 0h2m6 0h2M2 13.5h2m3 0h2m1 0h3m3 0h5m1 0h3m3 0h1M0 14.5h4m2 0h1m8 0h1m1 0h1m2 0h1m3 0h3M0 15.5h4m1 0h1m2 0h1m3 0h1m1 0h1m1 0h1m1 0h1m1 0h1m2 0h1m3 0h1M6 16.5h2m2 0h3m4 0h1m1 0h1m5 0h2M0 17.5h3m1 0h2m1 0h2m3 0h3m4 0h2m1 0h3m1 0h1m1 0h1M0 18.5h1m2 0h1m2 0h2m1 0h1m1 0h5m1 0h1m2 0h2m1 0h2m1 0h1M0 19.5h1m1 0h1m1 0h1m5 0h2m1 0h1m1 0h2m1 0h1m3 0h1m4 0h1M0 20.5h1m2 0h2m1 0h1m1 0h1m2 0h2m1 0h1m2 0h1m1 0h6m1 0h3M8 21.5h3m5 0h1m1 0h1m1 0h1m3 0h5M0 22.5h7m3 0h2m3 0h2m2 0h2m1 0h1m1 0h3M0 23.5h1m5 0h1m1 0h1m1 0h2m2 0h3m2 0h2m3 0h1m2 0h1M0 24.5h1m1 0h3m1 0h1m1 0h2m5 0h1m1 0h1m2 0h5m1 0h1M0 25.5h1m1 0h3m1 0h1m1 0h3m1 0h3m1 0h1m2 0h3m3 0h4M0 26.5h1m1 0h3m1 0h1m1 0h2m1 0h9m1 0h7M0 27.5h1m5 0h1m4 0h2m5 0h1m1 0h1m1 0h2m1 0h1m1 0h1M0 28.5h7m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m1 0h1m4 0h3"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-cat="tools" data-search="סילבוס מתמטיקה א׳–ג׳ תכנית הלימודים השנתית במתמטיקה לכיתות א׳–ג׳ — נושאים, שעות וחומרים. כלים פדגוגיים">
+        <div class="card-head">
+          <span class="mono mono--amber" aria-hidden="true">ח</span>
+          <div class="card-titles">
+            <h2 class="card-name">סילבוס מתמטיקה א׳–ג׳</h2>
+            <span class="chip chip--amber">כלים פדגוגיים</span>
+          </div>
+        </div>
+        <p class="card-desc">תכנית הלימודים השנתית במתמטיקה לכיתות א׳–ג׳ — נושאים, שעות וחומרים.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">math-alef-gimel.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-math-ag">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://math-alef-gimel.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-math-ag" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m8 0h2m1 0h1m3 0h7M0 1.5h1m5 0h1m1 0h3m2 0h2m1 0h1m3 0h1m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h3m5 0h3m1 0h1m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m2 0h2m1 0h1m2 0h6m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m2 0h3m3 0h1m1 0h1m2 0h1m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h1m3 0h1m1 0h3m1 0h1m1 0h1M0 8.5h1m5 0h1m1 0h3m6 0h1m1 0h1m1 0h2m2 0h3M1 9.5h2m2 0h1m1 0h4m2 0h1m2 0h1m2 0h1m4 0h1m1 0h2M1 10.5h1m1 0h2m1 0h1m1 0h2m2 0h4m1 0h1m2 0h1m1 0h1m1 0h1M1 11.5h1m1 0h2m2 0h1m2 0h1m2 0h1m4 0h1m2 0h1m3 0h1M2 12.5h3m1 0h1m4 0h1m1 0h1m1 0h1m4 0h1m1 0h2m4 0h1M0 13.5h3m4 0h1m7 0h2m1 0h3m1 0h3m2 0h2M1 14.5h1m1 0h1m2 0h2m1 0h2m4 0h1m4 0h2m2 0h3M0 15.5h1m1 0h1m4 0h1m1 0h2m5 0h1m2 0h1m1 0h4m1 0h1m1 0h1M2 16.5h3m1 0h2m2 0h1m4 0h3m5 0h1m1 0h2M0 17.5h1m2 0h3m3 0h1m2 0h5m2 0h2m1 0h3m1 0h3M0 18.5h2m4 0h2m3 0h2m2 0h1m2 0h2m4 0h2m2 0h1M0 19.5h1m2 0h3m1 0h1m1 0h1m3 0h1m4 0h1m1 0h1m3 0h1M0 20.5h1m1 0h1m1 0h5m2 0h1m2 0h2m1 0h1m1 0h6m1 0h3M8 21.5h1m1 0h1m3 0h2m2 0h1m1 0h1m3 0h2M0 22.5h7m2 0h1m2 0h1m2 0h1m1 0h4m1 0h1m1 0h3M0 23.5h1m5 0h1m3 0h1m3 0h3m3 0h1m3 0h1m3 0h1M0 24.5h1m1 0h3m1 0h1m2 0h1m1 0h4m1 0h1m2 0h7m1 0h2M0 25.5h1m1 0h3m1 0h1m5 0h1m1 0h2m2 0h1m1 0h2m3 0h2m1 0h1M0 26.5h1m1 0h3m1 0h1m2 0h4m1 0h2m3 0h1m1 0h7M0 27.5h1m5 0h1m2 0h1m1 0h1m9 0h6m1 0h1M0 28.5h7m1 0h2m1 0h4m2 0h1m1 0h1m3 0h1m2 0h1"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-cat="tools" data-search="סילבוס מתמטיקה ד׳–ו׳ תכנית הלימודים השנתית במתמטיקה לכיתות ד׳–ו׳ — נושאים, שעות וחומרים. כלים פדגוגיים">
+        <div class="card-head">
+          <span class="mono mono--amber" aria-hidden="true">ח</span>
+          <div class="card-titles">
+            <h2 class="card-name">סילבוס מתמטיקה ד׳–ו׳</h2>
+            <span class="chip chip--amber">כלים פדגוגיים</span>
+          </div>
+        </div>
+        <p class="card-desc">תכנית הלימודים השנתית במתמטיקה לכיתות ד׳–ו׳ — נושאים, שעות וחומרים.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">math-dalet-vav.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-math-dv">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://math-dalet-vav.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-math-dv" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m1 0h2m5 0h5m2 0h7M0 1.5h1m5 0h1m1 0h1m1 0h1m1 0h1m1 0h2m2 0h1m1 0h1m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m2 0h1m3 0h3m4 0h1m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h1m2 0h2m3 0h2m2 0h1m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m3 0h2m1 0h1m3 0h3m2 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m2 0h1m4 0h1m2 0h4m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h1m3 0h3m2 0h1m2 0h1M0 8.5h1m1 0h2m1 0h3m2 0h1m2 0h2m1 0h4m2 0h1m2 0h1m1 0h2M0 9.5h3m4 0h6m2 0h2m1 0h5m1 0h1m3 0h1M1 10.5h4m1 0h1m2 0h3m2 0h2m1 0h2m1 0h4m2 0h2M0 11.5h2m1 0h1m1 0h1m2 0h4m1 0h3m2 0h1m1 0h3m1 0h1m3 0h1M0 12.5h2m2 0h1m1 0h1m1 0h1m1 0h1m1 0h1m4 0h1m2 0h1m4 0h2M0 13.5h1m1 0h2m5 0h5m3 0h3m2 0h1m3 0h3M6 14.5h4m2 0h1m1 0h1m1 0h2m1 0h4m3 0h3M3 15.5h1m1 0h1m1 0h2m2 0h1m1 0h1m1 0h1m2 0h1m1 0h2m1 0h2m2 0h1M2 16.5h1m2 0h3m4 0h1m3 0h1m1 0h4m2 0h2m1 0h1M3 17.5h2m8 0h1m1 0h1m7 0h1m1 0h3M0 18.5h1m1 0h1m1 0h3m3 0h1m1 0h1m2 0h1m1 0h2m2 0h1m1 0h2m1 0h1M2 19.5h2m1 0h1m3 0h1m1 0h2m4 0h2m2 0h1m1 0h1m2 0h1M1 20.5h1m1 0h4m1 0h2m2 0h2m3 0h10M8 21.5h1m3 0h3m1 0h1m1 0h3m3 0h5M0 22.5h7m1 0h1m2 0h3m2 0h5m1 0h1m1 0h2m1 0h1M0 23.5h1m5 0h1m1 0h3m5 0h1m1 0h1m1 0h1m3 0h2m1 0h2M0 24.5h1m1 0h3m1 0h1m3 0h3m1 0h2m1 0h1m2 0h5m1 0h2M0 25.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h4m2 0h3m1 0h3m2 0h1M0 26.5h1m1 0h3m1 0h1m1 0h1m3 0h1m1 0h1m1 0h1m1 0h1m4 0h1m2 0h1m1 0h1M0 27.5h1m5 0h1m4 0h1m4 0h1m1 0h1m1 0h1m1 0h4m1 0h1M0 28.5h7m1 0h4m1 0h3m3 0h2m3 0h1m2 0h1"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-cat="tools" data-search="סילבוס חומש א׳–ו׳ תכנית הלימודים השנתית בחומש לכיתות א׳–ו׳, עם חומרים לכל נושא. כלים פדגוגיים">
+        <div class="card-head">
+          <span class="mono mono--amber" aria-hidden="true">ת</span>
+          <div class="card-titles">
+            <h2 class="card-name">סילבוס חומש א׳–ו׳</h2>
+            <span class="chip chip--amber">כלים פדגוגיים</span>
+          </div>
+        </div>
+        <p class="card-desc">תכנית הלימודים השנתית בחומש לכיתות א׳–ו׳, עם חומרים לכל נושא.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">chumash-alef-vav.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-chumash">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://chumash-alef-vav.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-chumash" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m2 0h1m1 0h2m2 0h2m1 0h3m1 0h7M0 1.5h1m5 0h1m3 0h1m1 0h1m5 0h1m3 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h4m2 0h1m1 0h1m2 0h2m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h4m5 0h1m2 0h1m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h1m3 0h4m3 0h2m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h1m1 0h2m1 0h3m1 0h1m2 0h1m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h2m1 0h3m1 0h1m2 0h1m1 0h1M0 8.5h1m1 0h5m2 0h3m2 0h6m2 0h5M0 9.5h1m1 0h3m2 0h2m2 0h2m3 0h4m1 0h4m3 0h1M0 10.5h1m3 0h4m1 0h1m1 0h2m2 0h1m1 0h1m3 0h1m1 0h2M0 11.5h1m2 0h2m6 0h1m2 0h2m2 0h3m2 0h1m1 0h1m1 0h1M5 12.5h2m2 0h1m1 0h2m2 0h3m7 0h2M0 13.5h1m4 0h1m5 0h4m1 0h1m2 0h2m1 0h3m3 0h1M0 14.5h2m3 0h3m2 0h1m1 0h6m2 0h2m1 0h4M2 15.5h2m1 0h1m7 0h1m1 0h1m2 0h1m1 0h1m1 0h3m2 0h1M1 16.5h4m1 0h4m1 0h1m2 0h2m1 0h1m5 0h1m1 0h2M0 17.5h3m4 0h1m1 0h1m1 0h2m3 0h1m1 0h7m1 0h1m1 0h1M0 18.5h1m1 0h1m1 0h4m2 0h3m2 0h1m5 0h2m1 0h1m1 0h1M0 19.5h1m1 0h3m3 0h1m1 0h1m1 0h1m1 0h1m1 0h1m3 0h2m5 0h1M0 20.5h1m3 0h3m1 0h4m5 0h1m1 0h6m1 0h3M8 21.5h7m5 0h1m3 0h5M0 22.5h7m4 0h1m1 0h3m1 0h4m1 0h1m1 0h3M0 23.5h1m5 0h1m1 0h1m1 0h2m1 0h1m1 0h2m1 0h3m3 0h1m3 0h1M0 24.5h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m2 0h1m2 0h5m1 0h2M0 25.5h1m1 0h3m1 0h1m1 0h1m3 0h1m3 0h1m1 0h2m1 0h1m3 0h4M0 26.5h1m1 0h3m1 0h1m1 0h2m1 0h1m3 0h4m2 0h7M0 27.5h1m5 0h1m2 0h1m4 0h3m3 0h1m1 0h2m1 0h1m1 0h1M0 28.5h7m1 0h2m1 0h1m3 0h1m1 0h1m1 0h1m4 0h1m1 0h1"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-cat="tools" data-search="סילבוס אנגלית א׳–ו׳ תכנית הלימודים השנתית באנגלית לכיתות א׳–ו׳ — לקסיקון, דקדוק וספרים. כלים פדגוגיים">
+        <div class="card-head">
+          <span class="mono mono--amber" aria-hidden="true">E</span>
+          <div class="card-titles">
+            <h2 class="card-name">סילבוס אנגלית א׳–ו׳</h2>
+            <span class="chip chip--amber">כלים פדגוגיים</span>
+          </div>
+        </div>
+        <p class="card-desc">תכנית הלימודים השנתית באנגלית לכיתות א׳–ו׳ — לקסיקון, דקדוק וספרים.</p>
+        <div class="card-foot">
+          <span class="host" dir="ltr">english-alef-vav.vercel.app</span>
+          <div class="actions">
+            <button type="button" class="btn btn-ghost install-toggle" aria-expanded="false" aria-controls="qr-english">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+              התקנה
+            </button>
+            <a class="btn btn-primary" href="https://english-alef-vav.vercel.app" target="_blank" rel="noopener">
+              פתיחה
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="qr-panel" id="qr-english" hidden>
+          <div class="qr-box"><svg preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path stroke="#1c1230" d="M0 0.5h7m3 0h1m1 0h1m2 0h2m1 0h3m1 0h7M0 1.5h1m5 0h1m3 0h1m7 0h1m3 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h2m1 0h1m2 0h1m1 0h1m2 0h2m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h1m1 0h1m6 0h1m2 0h1m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h3m2 0h3m3 0h2m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h1m4 0h3m1 0h1m2 0h1m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h1m3 0h2m1 0h1m2 0h1m1 0h1M0 8.5h1m1 0h5m3 0h2m2 0h6m2 0h5M1 9.5h2m1 0h1m3 0h1m1 0h2m4 0h4m1 0h4m3 0h1M0 10.5h1m3 0h1m1 0h2m1 0h1m2 0h1m2 0h1m1 0h1m3 0h2m1 0h1M0 11.5h1m1 0h1m4 0h2m2 0h1m2 0h2m2 0h3m2 0h1m1 0h1m1 0h1M0 12.5h3m1 0h1m1 0h1m1 0h1m6 0h3m7 0h2M0 13.5h4m1 0h1m1 0h3m1 0h1m1 0h2m1 0h1m2 0h2m1 0h3m3 0h1M1 14.5h1m3 0h2m3 0h2m1 0h5m2 0h2m1 0h1m1 0h2M2 15.5h1m2 0h1m2 0h2m3 0h1m1 0h1m2 0h1m1 0h1m1 0h3m2 0h1M0 16.5h2m3 0h2m4 0h1m2 0h2m1 0h1m7 0h2M0 17.5h1m1 0h1m6 0h2m5 0h1m1 0h7m1 0h1m1 0h1M0 18.5h1m2 0h1m1 0h2m1 0h1m2 0h1m3 0h1m5 0h2m3 0h1M0 19.5h1m2 0h2m4 0h3m2 0h1m1 0h1m3 0h2m1 0h1m3 0h1M0 20.5h1m1 0h1m2 0h2m2 0h2m1 0h1m4 0h1m1 0h6m1 0h3M8 21.5h1m1 0h2m1 0h2m5 0h1m3 0h5M0 22.5h7m2 0h3m1 0h3m1 0h4m1 0h1m1 0h3M0 23.5h1m5 0h1m1 0h2m3 0h1m1 0h2m1 0h3m3 0h1m3 0h1M0 24.5h1m1 0h3m1 0h1m1 0h1m5 0h1m2 0h1m2 0h5m1 0h2M0 25.5h1m1 0h3m1 0h1m1 0h2m2 0h2m2 0h1m1 0h2m1 0h1m3 0h4M0 26.5h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h6m2 0h7M0 27.5h1m5 0h1m2 0h1m4 0h3m3 0h1m1 0h4m1 0h1M0 28.5h7m1 0h1m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m3 0h2m1 0h1"/></svg></div>
+          <div class="qr-text">
+            <strong>התקנה על הטלפון</strong>
+            <span>סרקו את הקוד במצלמה, ואז בתפריט הדפדפן בחרו <b>“הוסף למסך הבית”</b>. האפליקציה תיפתח כמו אפליקציה רגילה.</span>
+          </div>
+        </div>
+      </article>
+      </div>
+      <p class="empty" id="empty">לא נמצאה מערכת שמתאימה לחיפוש.</p>
+
+      <footer>
+        בנוי ופיתוח: שרה הגר · <a href="tel:0503339770">050-333-9770</a><br>
+        כל הקישורים נבדקו ואומתו כפעילים · לחיצה על “התקנה” פותחת קוד לסריקה מהטלפון
+      </footer>
     </div>
-    <div class="grid" id="liveGrid"></div>
-
-    <div class="section-label">
-      <span class="bar"></span><h2>בפיתוח</h2><span class="count" id="devCount"></span>
-    </div>
-    <div class="grid" id="devGrid"></div>
-
-    <footer>
-      <div>רשת חינוך חב״ד · רשת אהלי יוסף יצחק ליובאוויטש</div>
-    </footer>
   </div>
 
-<script>
-  // ===== עריכה כאן: הוספת/שינוי מערכת =====
-  const LIVE = [
-    { icon:'🎓', teal:false, name:'המדרשת', desc:'הכשרה ופיתוח מקצועי למורות הרשת — קטלוג, הרשמה וגבייה.', url:'https://hamidrasha-sarahager1-pngs-projects.vercel.app' },
-    { icon:'🎉', teal:true,  name:'חגים ונהנים', desc:'CRM לשלוחים, מודלי מפעיל, הצעות מחיר וקבלות.', url:'https://chagim-venehenim.vercel.app' },
-    { icon:'🗂️', teal:false, name:'עתודות לחינוך', desc:'מסד נתוני מועמדים ובוגרים לשליחות החינוך.', url:'https://atudot-lachinuch.co.il' },
-    { icon:'🧭', teal:true,  name:'גיוס והשמה', desc:'גיוס מועמדים, התאמה והשמה לשליחות.', url:'https://giuus.vercel.app' },
-    { icon:'☀️', teal:false, name:'קייטנות חב״ד', desc:'רישום ותשלום לקייטנות הקיץ של הרשת.', url:'https://chabadsummer.co.il' },
-    { icon:'📅', teal:true,  name:'מערכת שעות', desc:'בניית מערכת שעות בית-ספרית חכמה.', url:'https://school-schedule-teal.vercel.app' },
-    { icon:'📝', teal:false, name:'אישורי טיולים', desc:'אישורי הורים דיגיטליים בחתימה לטיולים.', url:'https://trip-consent.vercel.app' },
-    { icon:'🧸', teal:true,  name:'דשבורד גנים', desc:'פיקוח ומעקב גני ילדים למדריכות.', url:'https://gan-madrichot.surge.sh' },
-  ];
-  const DEV = [
-    { icon:'🔥', name:'פיקוח שלהבות', desc:'פיקוח ושליחת טפסים לתלמודי תורה.' },
-    { icon:'🏫', name:'תיק מוסד / תלמודי תורה', desc:'מיפוי ותיק מוסד לרשת התלמודי תורה.' },
-    { icon:'📚', name:'תכלית שנתית', desc:'תכנון שנתי ושיעורים למורות.' },
-    { icon:'💰', name:'תקציב בית חינוך', desc:'ניהול תקציב פר בית ספר.' },
-    { icon:'🏫', name:'דשבורד בתי ספר', desc:'פגישות סיכום ופיקוח לבתי הספר.' },
-  ];
+  <script>
+  (function(){
+    var root=document.documentElement;
+    var saved=null; try{saved=localStorage.getItem('proj-theme')}catch(e){}
+    if(saved){root.setAttribute('data-theme',saved)}
+    var btn=document.getElementById('themeBtn'),ic=document.getElementById('themeIcon'),lb=document.getElementById('themeLabel');
+    function isDark(){var t=root.getAttribute('data-theme');if(t)return t==='dark';return matchMedia('(prefers-color-scheme: dark)').matches}
+    function paint(){var d=isDark();ic.textContent=d?'☀️':'🌙';lb.textContent=d?'מצב בהיר':'מצב כהה'}
+    paint();
+    btn.addEventListener('click',function(){var next=isDark()?'light':'dark';root.setAttribute('data-theme',next);try{localStorage.setItem('proj-theme',next)}catch(e){}paint()});
 
-  function liveCard(s){
-    return `<a class="card live" href="${s.url}" target="_blank" rel="noopener">
-      <div class="card-top">
-        <div class="tile ${s.teal?'teal':''}">${s.icon}</div>
-        <div><div class="name">${s.name}</div>
-          <span class="badge on"><span class="dot"></span>פעיל</span></div>
-      </div>
-      <p class="desc">${s.desc}</p>
-      <span class="go">כניסה<span class="arrow">←</span></span>
-    </a>`;
-  }
-  function devCard(s){
-    return `<div class="card dev">
-      <div class="card-top">
-        <div class="tile">${s.icon}</div>
-        <div><div class="name">${s.name}</div>
-          <span class="badge off"><span class="dot"></span>בפיתוח</span></div>
-      </div>
-      <p class="desc">${s.desc}</p>
-      <span class="go muted">בקרוב<span class="arrow">←</span></span>
-    </div>`;
-  }
-  document.getElementById('liveGrid').innerHTML = LIVE.map(liveCard).join('');
-  document.getElementById('devGrid').innerHTML = DEV.map(devCard).join('');
-  document.getElementById('liveCount').textContent = LIVE.length + ' מערכות';
-  document.getElementById('devCount').textContent = DEV.length + ' מערכות';
-</script>
+    document.querySelectorAll('.install-toggle').forEach(function(t){
+      t.addEventListener('click',function(){
+        var panel=document.getElementById(t.getAttribute('aria-controls'));
+        var open=t.getAttribute('aria-expanded')==='true';
+        t.setAttribute('aria-expanded',String(!open));
+        panel.hidden=open;
+      });
+    });
+
+    var q=document.getElementById('search'),cards=[].slice.call(document.querySelectorAll('.card')),
+        empty=document.getElementById('empty'),filter='all',term='';
+    function apply(){
+      var n=0;
+      cards.forEach(function(c){
+        var okCat=filter==='all'||c.getAttribute('data-cat')===filter;
+        var okTerm=!term||c.getAttribute('data-search').indexOf(term)>-1;
+        var show=okCat&&okTerm;c.style.display=show?'':'none';if(show)n++;
+      });
+      empty.style.display=n?'none':'block';
+    }
+    q.addEventListener('input',function(){term=q.value.trim();apply()});
+    document.getElementById('filters').addEventListener('click',function(e){
+      var b=e.target.closest('.fchip');if(!b)return;
+      document.querySelectorAll('.fchip').forEach(function(x){x.classList.remove('is-active')});
+      b.classList.add('is-active');filter=b.getAttribute('data-filter');apply();
+    });
+  })();
+  </script>
 </body>
 </html>
